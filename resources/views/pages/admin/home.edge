@@ -1,0 +1,41 @@
+@layout('layouts/admin')
+
+@section('styles')
+  @entryPointStyles('pages/admin/home')
+@endsection
+@section('scripts-head')
+  @entryPointScripts('pages/admin/home')
+@endsection
+
+@section('body')
+<div id="admin-home">
+  <header>
+    <h2 class="title">Général</h2>
+  </header>
+  <section class="card-grid">
+    <article class="card card-orange">
+      <div class="icon">
+        <i class="fas fa-users"></i>
+        <p class="number" id="users-count" data-count="{{ usersCount }}">0</p>
+      </div>
+      <h1 class="card-title">Nombre d'utilisateurs</h1>
+    </article>
+
+    <article class="card card-purple">
+      <div class="icon">
+        <i class="fas fa-users"></i>
+        <p class="number" id="sellers-count" data-count="{{ sellersCount }}">0</p>
+      </div>
+      <h1 class="card-title">Nombre de vendeurs</h1>
+    </article>
+
+    <article class="card card-red">
+      <div class="icon">
+        <i class="fas fa-users"></i>
+        <p class="number" id="commands-count" data-count="{{ commandsCount }}">0</p>
+      </div>
+      <h1 class="card-title">Nombre de commandes en cours</h1>
+    </article>
+  </section>
+</div>
+@endsection

@@ -1,0 +1,13 @@
+@layout('layouts/admin')
+
+@section('styles')
+  @entryPointStyles('pages/admin/userInfo')
+@endsection
+
+@section('body')
+  <div id="admin-userinfo">
+    <header>
+      <h2 class="title">{{ user.username }}</h2>
+    </header>
+  </div>
+@endsection

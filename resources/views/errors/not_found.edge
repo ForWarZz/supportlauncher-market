@@ -1,0 +1,22 @@
+@layout('layouts/base')
+
+@section('styles')
+@entryPointStyles('pages/errors')
+@endsection
+
+@section('body')
+<main id="errors">
+  <section class="box">
+    <h1 class="title">
+      Oups !
+    </h1>
+    <p class="description">Il semblerait que vous vous soyez perdu.</p>
+    <div class="actions">
+      <a href="{{ route('base.home')}}" class="back-link">
+        <i class="fas fa-arrow-left"></i>
+        Revenir  la page d'accueil
+      </a>
+    </div>
+  </section>
+</main>
+@endsection

@@ -1,0 +1,8 @@
+<div class="input-field{{ icon ? ' with-icon' : ''}}">
+  @if(icon)
+    <span class="icon">
+      <i class="{{ icon }}"></i>
+    </span>
+  @endif
+  <input id="{{ id }}" {{ value ? 'value='+value : ''}} {{ type ? 'type='+type : 'type="text"' }} class="input" name="{{ name }}" {{ placeholder  ? 'placeholder='+placeholder : ''}} {{ disabled ? 'disabled' :'' }} {{ customAttr ? customAttr : '' }}>
+</div>

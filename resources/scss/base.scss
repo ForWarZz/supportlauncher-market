@@ -1,0 +1,6 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/utilities';
+
+body {
+  @apply h-screen bg-gray-100 flex flex-col;
+}

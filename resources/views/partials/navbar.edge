@@ -1,0 +1,48 @@
+<nav id="navbar">
+  <div class="nav-container">
+    <a href="{{ route('base.home') }}" class="logo-link">
+      <span class="logo-container">
+        <img src="{{ asset('assets/images/logo.svg') }}" alt="SL-Market's logo">
+      </span>
+      <span class="title-container">SL-Market</span>
+    </a>
+
+    <span class="menubar">
+      <a href="#">Vendeurs</a>
+      @can('AdminPolicy.accessPanel')
+        <a href="{{ route('admin.home') }}" class="{{ request.matchesRoute('/admin') ? 'active' : '' }}">
+          Administration
+        </a>
+      @endcan
+      @loggedIn
+      <div class="navbar-dropdown">
+        <span>
+          <img src="{{ auth.user.avatar }}" alt="User's Avatar" class="avatar">
+          {{ auth.user.username }}
+          <i class="fas fa-caret-down"></i>
+        </span>
+        <ul class="dropdown">
+
+          <li>
+            <a href="#">
+              Mon profil
+              <i class="fas fa-user"></i>
+            </a>
+          </li>
+          <li>
+            <a href="{{ route('auth.logout') }}">
+              Déconnexion
+              <i class="fas fa-sign-out-alt"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      @else
+      <a href="{{ route('auth.redirect') }}" class="discord-btn button">
+        <i class="fab fa-discord"></i>
+        Authentification
+      </a>
+      @endloggedIn
+    </span>
+  </div>
+</nav>
