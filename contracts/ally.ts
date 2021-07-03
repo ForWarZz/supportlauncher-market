@@ -6,10 +6,10 @@
  */
 
 declare module '@ioc:Adonis/Addons/Ally' {
-	interface SocialProviders {
+  interface SocialProviders {
     discord: {
       config: DiscordDriverConfig
       implementation: DiscordDriverContract
     }
-	}
+  }
 }
