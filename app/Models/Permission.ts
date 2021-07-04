@@ -14,6 +14,8 @@ export type PermsType =
   | 'admin:viewRole'
   | 'admin:updateRole'
   | 'admin:deleteRole'
+  // SELLER
+  | 'seller:canSell'
 
 export default class Permission extends BaseModel {
   @column({ isPrimary: true })

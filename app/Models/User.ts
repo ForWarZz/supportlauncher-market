@@ -1,12 +1,5 @@
 import { DateTime } from 'luxon'
-import {
-  column,
-  BaseModel,
-  manyToMany,
-  ManyToMany,
-  belongsTo,
-  BelongsTo,
-} from '@ioc:Adonis/Lucid/Orm'
+import { column, BaseModel, manyToMany, ManyToMany, hasOne, HasOne } from '@ioc:Adonis/Lucid/Orm'
 import Role from './Role'
 import Permission, { PermsType } from './Permission'
 import SellerProfile from './SellerProfile'
@@ -74,8 +67,8 @@ export default class User extends BaseModel {
   })
   public roles: ManyToMany<typeof Role>
 
-  @belongsTo(() => SellerProfile)
-  public sellerProfile: BelongsTo<typeof SellerProfile>
+  @hasOne(() => SellerProfile)
+  public sellerProfile: HasOne<typeof SellerProfile>
 
   /**
    * User's permissions relation

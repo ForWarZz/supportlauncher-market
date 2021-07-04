@@ -7,6 +7,7 @@
   "assets/pages/home.css": "http://localhost:8080/assets/pages/home.css",
   "assets/pages/admin/users.css": "http://localhost:8080/assets/pages/admin/users.css",
   "assets/pages/admin/userInfo.css": "http://localhost:8080/assets/pages/admin/userInfo.css",
+  "assets/pages/user/profile.css": "http://localhost:8080/assets/pages/user/profile.css",
   "assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-beta_3_webpack-cli_4_7_2_webpack_5_42_0_no-de750f.js": "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-beta_3_webpack-cli_4_7_2_webpack_5_42_0_no-de750f.js",
   "assets/images/fa-solid-900.svg": "http://localhost:8080/assets/images/fa-solid-900.13de59f1.svg",
   "assets/images/fa-brands-400.svg": "http://localhost:8080/assets/images/fa-brands-400.216edb96.svg",
@@ -18,5 +19,6 @@
   "assets/fonts/fa-brands-400.woff": "http://localhost:8080/assets/fonts/fa-brands-400.329a95a9.woff",
   "assets/fonts/fa-solid-900.woff2": "http://localhost:8080/assets/fonts/fa-solid-900.ada6e6df.woff2",
   "assets/fonts/fa-brands-400.woff2": "http://localhost:8080/assets/fonts/fa-brands-400.c1210e5e.woff2",
-  "assets/images/logo.svg": "http://localhost:8080/assets/images/logo.9ce7439e.svg"
+  "assets/images/logo.svg": "http://localhost:8080/assets/images/logo.9ce7439e.svg",
+  "assets/images/stripe_logo.svg": "http://localhost:8080/assets/images/stripe_logo.b1a65489.svg"
 }

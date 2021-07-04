@@ -21,6 +21,8 @@ import Route from '@ioc:Adonis/Core/Route'
 
 import './base'
 import './auth'
+import './user'
+import './seller'
 import './admin'
 
 Route.get('*', async ({ view }) => view.render('errors/not_found'))

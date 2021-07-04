@@ -36,6 +36,7 @@ specifiers:
   sass-loader: ^12.1.0
   source-map-support: ^0.5.19
   sqlite3: ^5.0.2
+  stripe: ^8.160.0
   tailwindcss: ^2.2.4
   ts-loader: ^9.2.3
   typescript: ~4.3.5
@@ -61,6 +62,7 @@ dependencies:
   reflect-metadata: 0.1.13
   source-map-support: 0.5.19
   sqlite3: 5.0.2
+  stripe: 8.160.0
 
 devDependencies:
   '@adonisjs/assembler': 5.3.2_@adonisjs+core@5.1.9
@@ -8278,6 +8280,14 @@ packages:
     resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
     engines: {node: '>=8'}
     dev: true
+
+  /stripe/8.160.0:
+    resolution: {integrity: sha512-UGIxgtjiVvN69F14N+pJK+ArkeRYoZccDoPwz20Cp0VnNzVQyWOO8j5YbIVjjgLeh9Rm9l9/GPrt6xJGmPlR3Q==}
+    engines: {node: ^8.1 || >=10.*}
+    dependencies:
+      '@types/node': 16.0.0
+      qs: 6.10.1
+    dev: false
 
   /strtok3/6.0.8:
     resolution: {integrity: sha512-QLgv+oiXwXgCgp2PdPPa+Jpp4D9imK9e/0BsyfeFMr6QL6wMVqoVn9+OXQ9I7MZbmUzN6lmitTJ09uwS2OmGcw==}

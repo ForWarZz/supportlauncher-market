@@ -56,6 +56,14 @@
       "css": [
         "http://localhost:8080/assets/pages/admin/userInfo.css"
       ]
+    },
+    "pages/user/profile": {
+      "js": [
+        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-beta_3_webpack-cli_4_7_2_webpack_5_42_0_no-de750f.js"
+      ],
+      "css": [
+        "http://localhost:8080/assets/pages/user/profile.css"
+      ]
     }
   }
 }

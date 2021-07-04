@@ -1,0 +1,30 @@
+@import '../../partials/navbar.scss';
+@import '../../components/button.scss';
+
+#profile {
+  @apply flex-1 p-8 overflow-y-auto;
+  header {
+    h2.title {
+      @apply text-2xl mb-5 leading-tight;
+    }
+  }
+
+  section {
+    @apply mx-4 text-gray-800 mb-5;
+
+    .title {
+      @apply text-blue-500 uppercase font-bold mb-2;
+    }
+  }
+
+  .stripe-connect,
+  .stripe-disconnect {
+    @apply w-auto mt-2 inline-block;
+
+    background-color: #635bff;
+
+    img {
+      @apply inline-block;
+    }
+  }
+}
