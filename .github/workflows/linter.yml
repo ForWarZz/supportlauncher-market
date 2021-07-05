@@ -26,6 +26,27 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      # Setup NodeJS
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # Configure caching
+      - name: Cache .pnpm-store
+        uses: actions/cache@v1
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-node${{ matrix.node-version }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+
+      # Install PNPM
+      - name: Install pnpm
+        run: npm i -g pnpm
+
+      # Install dependancies
+      - name: pnpm install
+        run: pnpm install
+
       ################################
       # Run Linter against code base #
       ################################
@@ -40,3 +61,4 @@ jobs:
           TYPESCRIPT_ES_CONFIG_FILE: .eslintrc.json
           VALIDATE_YAML: false
           VALIDATE_CSS: false
+          VALIDATE_ENV: false
