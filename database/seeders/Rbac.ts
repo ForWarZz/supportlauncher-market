@@ -75,5 +75,14 @@ export default class RbacSeeder extends BaseSeeder {
 
     await superadmin.related('permissions').saveMany(adminPerms)
     await admin.related('permissions').saveMany(adminPerms)
+
+    const sellerPerms = await Permission.createMany([
+      {
+        slug: 'seller:canSell',
+        active: true,
+      },
+    ])
+
+    await seller.related('permissions').saveMany(sellerPerms)
   }
 }

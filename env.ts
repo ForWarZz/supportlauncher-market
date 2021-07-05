@@ -31,6 +31,13 @@ export default Env.rules({
 
   DISCORD_CLIENT_ID: Env.schema.string(),
   DISCORD_CLIENT_SECRET: Env.schema.string(),
+  DISCORD_REDIRECT_URI: Env.schema.string(),
 
   SESSION_DRIVER: Env.schema.string(),
+
+  // Stripe configuration
+  STRIPE_SECRET_KEY: Env.schema.string(),
+  STRIPE_API_VERSION: Env.schema.string(),
+  STRIPE_REFRESH_URL: Env.schema.string(),
+  STRIPE_RETURN_URL: Env.schema.string(),
 })

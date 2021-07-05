@@ -1,10 +1,9 @@
 ---
 name: Demande de fonctionnalité
 about: Suggérer une idée pour ce projet
-title: "[Feature] "
+title: '[Feature] '
 labels: enhancement
 assignees: ''
-
 ---
 
 **Votre demande de fonctionnalité est-elle liée à un problème ? Veuillez le décrire.**

@@ -8,7 +8,6 @@ Pour contribuer au projet, vous aurez besoin des outils suivants :
 - PNPM ou NPM
 - Git flow
 
-
 ## Installation
 
 Premièrement, forkez et clonez le dépôt. Après cela, l'environnement devra être préparé :
