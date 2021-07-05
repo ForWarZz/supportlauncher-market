@@ -46,9 +46,9 @@
             </thead>
             <tbody>
               @each(u in users.rows)
-               @!component('components/pages/admin/user_item', {
-                 user: u
-               })
+                @!component('components/pages/admin/user_item', {
+                  user: u
+                })
               @endeach
             </tbody>
           </table>
