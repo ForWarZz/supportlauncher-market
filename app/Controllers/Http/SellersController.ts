@@ -56,7 +56,6 @@ export default class SellersController {
         await SellerProfile.query().sideload(auth.user!.sellerProfile).update({
           stripe_account_id: null,
         })
-        await Stripe.accounts.del(id)
       } catch (error) {
         logger.error(error)
       }

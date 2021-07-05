@@ -31,6 +31,7 @@ export default Env.rules({
 
   DISCORD_CLIENT_ID: Env.schema.string(),
   DISCORD_CLIENT_SECRET: Env.schema.string(),
+  DISCORD_REDIRECT_URI: Env.schema.string(),
 
   SESSION_DRIVER: Env.schema.string(),
 
