@@ -10,17 +10,17 @@
       <h2 class="title">Mon profil</h2>
     </header>
 
-    @can('SellerPolicy.isSeller')
+    @if(await auth.user.hasRole('seller'))
       <section>
         <h3 class="title">Vendeur</h3>
         <div class="options">
           <p>
-            Afin de pouvoir vendre vos services, il est nécessaire de lier un compte Stripe à votre
-            profil :
+            Afin de pouvoir vendre vos service, il est nécessaire de lier un compte Stripe à votre
+            profil:
           </p>
           @can('SellerPolicy.canSell')
             <a href="{{ route('seller.unlinkStripe')}}" class="button stripe-connect">
-              Se déconnecter de <img src="{{ asset('assets/images/stripe_logo.svg') }}"/>
+              Déconnexion de <img src="{{ asset('assets/images/stripe_logo.svg') }}"/>
             </a>
           @else
             <a href="{{ route('seller.linkStripe')}}" class="button stripe-disconnect">
@@ -29,6 +29,6 @@
           @end
         </div>
       </section>
-    @end
+    @endif
   </main>
 @endsection
