@@ -5,6 +5,10 @@ import SellerProfile from 'App/Models/SellerProfile'
 
 export default class SellersController {
   public async linkStripe({ auth, response }: HttpContextContract) {
+    if (!(await auth.user!.hasRole('seller'))) {
+      return response.redirect().back()
+    }
+
     await auth.user!.load('sellerProfile')
 
     const account = await Stripe.accounts.create({
@@ -28,6 +32,11 @@ export default class SellersController {
 
   public async stripeCallback({ response, logger, auth }: HttpContextContract) {
     await auth.user!.load('sellerProfile')
+
+    if (!auth.user!.sellerProfile) {
+      return response.redirect().toRoute('base.home')
+    }
+
     const id = auth.user!.sellerProfile.stripeAccountId
 
     if (id) {

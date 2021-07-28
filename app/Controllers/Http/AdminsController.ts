@@ -1,6 +1,5 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import User from 'App/Models/User'
-import Role from 'App/Models/Role'
 
 export default class AdminsController {
   public async home({ view }: HttpContextContract) {
@@ -71,7 +70,7 @@ export default class AdminsController {
     return response.redirect().back()
   }
 
-  public async userInfo({ view, request, logger, params }: HttpContextContract) {
+  public async userInfo({ view, params }: HttpContextContract) {
     const user = await User.find(params.id)
 
     if (user) {
