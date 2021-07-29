@@ -14,7 +14,7 @@ export default class SellerProfiles extends BaseSchema {
         .onDelete('cascade')
         .notNullable()
       table
-        .enum('status', ['available', 'unavailale', 'vacation'] as SellerStatus[])
+        .enum('status', ['available', 'unavailable', 'vacation'] as SellerStatus[])
         .notNullable()
         .defaultTo('available')
       table.text('bio').nullable()

@@ -58,6 +58,7 @@ Encore.addEntry('pages/admin/home', './resources/js/pages/admin/home.ts')
 Encore.addStyleEntry('pages/admin/users', './resources/scss/pages/admin/users.scss')
 Encore.addStyleEntry('pages/admin/userInfo', './resources/scss/pages/admin/userInfo.scss')
 Encore.addStyleEntry('pages/user/profile', './resources/scss/pages/user/profile.scss')
+Encore.addEntry('pages/my-services', './resources/js/pages/my-services/base.ts')
 
 /*
 |--------------------------------------------------------------------------

@@ -24,5 +24,6 @@ import './auth'
 import './user'
 import './seller'
 import './admin'
+import './services'
 
 Route.get('*', async ({ view }) => view.render('errors/not_found'))
