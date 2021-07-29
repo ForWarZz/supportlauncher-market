@@ -8,7 +8,7 @@
     </a>
 
     <span class="menubar">
-      <a href="#">Vendeurs</a>
+      <a href="{{ route('base.sellers') }}" class="{{ request.matchesRoute('/sellers') ? 'active' : '' }}">Vendeurs</a>
       @can('AdminPolicy.accessPanel')
         <a href="{{ route('admin.home') }}" class="{{ request.matchesRoute('/admin') ? 'active' : '' }}">
           Administration

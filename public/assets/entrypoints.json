@@ -2,52 +2,76 @@
   "entrypoints": {
     "pages/admin/home": {
       "js": [
-        "http://192.168.1.45:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-beta_3_webpack-cli_4_7_2_webpack_5_42_0_no-f6fab2.js",
-        "http://192.168.1.45:8080/assets/pages/admin/home.js"
+        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_47_0_node-84c0d3.js",
+        "http://localhost:8080/assets/pages/admin/home.js"
       ],
-      "css": ["http://192.168.1.45:8080/assets/pages/admin/home.css"]
+      "css": [
+        "http://localhost:8080/assets/pages/admin/home.css"
+      ]
     },
     "base": {
       "js": [
-        "http://192.168.1.45:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-beta_3_webpack-cli_4_7_2_webpack_5_42_0_no-f6fab2.js"
+        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_47_0_node-84c0d3.js"
       ],
-      "css": ["http://192.168.1.45:8080/assets/base.css"]
+      "css": [
+        "http://localhost:8080/assets/base.css"
+      ]
     },
     "fonts": {
       "js": [
-        "http://192.168.1.45:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-beta_3_webpack-cli_4_7_2_webpack_5_42_0_no-f6fab2.js"
+        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_47_0_node-84c0d3.js"
       ],
-      "css": ["http://192.168.1.45:8080/assets/fonts.css"]
+      "css": [
+        "http://localhost:8080/assets/fonts.css"
+      ]
     },
     "pages/errors": {
       "js": [
-        "http://192.168.1.45:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-beta_3_webpack-cli_4_7_2_webpack_5_42_0_no-f6fab2.js"
+        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_47_0_node-84c0d3.js"
       ],
-      "css": ["http://192.168.1.45:8080/assets/pages/errors.css"]
+      "css": [
+        "http://localhost:8080/assets/pages/errors.css"
+      ]
     },
     "pages/home": {
       "js": [
-        "http://192.168.1.45:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-beta_3_webpack-cli_4_7_2_webpack_5_42_0_no-f6fab2.js"
+        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_47_0_node-84c0d3.js"
       ],
-      "css": ["http://192.168.1.45:8080/assets/pages/home.css"]
+      "css": [
+        "http://localhost:8080/assets/pages/home.css"
+      ]
+    },
+    "pages/sellers": {
+      "js": [
+        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_47_0_node-84c0d3.js"
+      ],
+      "css": [
+        "http://localhost:8080/assets/pages/sellers.css"
+      ]
     },
     "pages/admin/users": {
       "js": [
-        "http://192.168.1.45:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-beta_3_webpack-cli_4_7_2_webpack_5_42_0_no-f6fab2.js"
+        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_47_0_node-84c0d3.js"
       ],
-      "css": ["http://192.168.1.45:8080/assets/pages/admin/users.css"]
+      "css": [
+        "http://localhost:8080/assets/pages/admin/users.css"
+      ]
     },
     "pages/admin/userInfo": {
       "js": [
-        "http://192.168.1.45:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-beta_3_webpack-cli_4_7_2_webpack_5_42_0_no-f6fab2.js"
+        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_47_0_node-84c0d3.js"
       ],
-      "css": ["http://192.168.1.45:8080/assets/pages/admin/userInfo.css"]
+      "css": [
+        "http://localhost:8080/assets/pages/admin/userInfo.css"
+      ]
     },
     "pages/user/profile": {
       "js": [
-        "http://192.168.1.45:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-beta_3_webpack-cli_4_7_2_webpack_5_42_0_no-f6fab2.js"
+        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_47_0_node-84c0d3.js"
       ],
-      "css": ["http://192.168.1.45:8080/assets/pages/user/profile.css"]
+      "css": [
+        "http://localhost:8080/assets/pages/user/profile.css"
+      ]
     }
   }
 }

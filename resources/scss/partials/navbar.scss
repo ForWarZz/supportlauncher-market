@@ -25,10 +25,10 @@
     }
 
     .menubar {
-      @apply flex-1 flex flex-col justify-end;
+      @apply flex-1 flex flex-col justify-end items-center;
 
       @screen md {
-        @apply flex-row items-center;
+        @apply flex-row;
       }
 
       a,

@@ -19,6 +19,9 @@ export default class SellerProfile extends BaseModel {
   @hasOne(() => User)
   public user: HasOne<typeof User>
 
+  @column()
+  public certified: boolean
+
   public get isStripeLinked(): boolean {
     return typeof this.stripeAccountId === 'string' && this.stripeAccountId.length > 1
   }

@@ -53,6 +53,7 @@ Encore.addStyleEntry('base', './resources/scss/base.scss')
 Encore.addStyleEntry('fonts', './resources/scss/fonts.scss')
 Encore.addStyleEntry('pages/errors', './resources/scss/pages/errors.scss')
 Encore.addStyleEntry('pages/home', './resources/scss/pages/home.scss')
+Encore.addStyleEntry('pages/sellers', './resources/scss/pages/sellers.scss')
 Encore.addEntry('pages/admin/home', './resources/js/pages/admin/home.ts')
 Encore.addStyleEntry('pages/admin/users', './resources/scss/pages/admin/users.scss')
 Encore.addStyleEntry('pages/admin/userInfo', './resources/scss/pages/admin/userInfo.scss')
@@ -156,6 +157,8 @@ Encore.configureDevServerOptions((options) => {
     directory: join(__dirname, './resources/views'),
     watch: true,
   })
+
+  delete options.client
 })
 
 /*
