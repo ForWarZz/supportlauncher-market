@@ -7,7 +7,87 @@
 @section('body')
   <div id="admin-userinfo">
     <header>
-      <h2 class="title">{{ user.username }}</h2>
+      <h1 class="title">
+        <span class="username">
+          {{ user.username }}
+        </span>
+        @if (user.sellerProfile && user.sellerProfile.certified)
+          <div class="certified">
+            <i class="fa fa-certificate badge-bg"></i>
+            <i class="fa fa-check badge-fg"></i>
+            <span class="label">Certifié</span>
+          </div>
+        @endif
+      </h1>
     </header>
+
+    <section>
+      <h2 class="title">Informations basiques</h2>
+      <div class="table-container">
+        <table>
+          <tbody>
+            <tr>
+              <th>Email</th>
+              <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+              <th>Dernières connexion</th>
+              <td>{{ user.lastLogin }}</td>
+            </tr>
+            <tr>
+              <th>Bannis ?</th>
+              <td>
+                <div class="checkbox-field">
+                  <input type="checkbox" name="banned" id="banned" {{ user.banned ? 'checked' : '' }} class="checkbox" {{ auth.user.id == user.id || await user.hasRole('superadmin') || !(await user.hasRole('admin') && await auth.user.hasRole('superadmin')) ? 'disabled' : '' }}>
+                  <label for="banned">{{ user.banned ? 'Oui' : 'Non' }}</label>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="title">Rôles</h2>
+
+      <form id="new-role-form" method="POST" action="#">
+        <div>
+          <label for="new-role" class="label">Ajouter un rôle</label>
+          <div class="select-field with-icon">
+            <div class="icon">
+              <i class="fas fa-tags"></i>
+            </div>
+            <select name="new_role" id="new-role" class="select">
+              @each(role in allRoles)
+                <option value="{{ role.id }}">{{ role.name }}</option>
+              @endeach
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="button">Ajouter</button>
+      </form>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <th>Nom</th>
+            <th>Actions</th>
+          </thead>
+          <tbody>
+            @each(role in user.roles)
+              <tr>
+                <td>{{ role.name }}</td>
+                <td>
+                  <button class="button">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            @endeach
+          </tbody>
+        </table>
+      </div>
+    </section>
   </div>
 @endsection

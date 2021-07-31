@@ -1,4 +1,5 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import Role from 'App/Models/Role'
 import User from 'App/Models/User'
 
 export default class AdminsController {
@@ -70,12 +71,26 @@ export default class AdminsController {
     return response.redirect().back()
   }
 
-  public async userInfo({ view, params }: HttpContextContract) {
+  public async userInfo({ view, params, auth }: HttpContextContract) {
     const user = await User.find(params.id)
 
     if (user) {
+      await user.load('sellerProfile')
+      await user.load('roles')
+
+      let roleQuery = Role.query().select('id', 'name', 'slug', 'active', 'level')
+
+      if (auth.user!.hasRole('superadmin')) {
+        roleQuery = roleQuery.where('level', '>', '0')
+      } else {
+        roleQuery = roleQuery.where('level', '>', '1')
+      }
+
+      const allRoles = await roleQuery
+
       return view.render('pages/admin/user_info', {
         user,
+        allRoles,
       })
     } else {
       return view.render('errors/not_found.edge')
