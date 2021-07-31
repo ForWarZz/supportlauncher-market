@@ -9,6 +9,16 @@
         "http://localhost:8080/assets/pages/admin/home.css"
       ]
     },
+    "pages/my-services": {
+      "js": [
+        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_47_0_node-84c0d3.js",
+        "http://localhost:8080/assets/vendors-node_modules_pnpm_alpinejs_3_2_2_node_modules_alpinejs_dist_module_esm_js-node_module-73e60f.js",
+        "http://localhost:8080/assets/pages/my-services.js"
+      ],
+      "css": [
+        "http://localhost:8080/assets/pages/my-services.css"
+      ]
+    },
     "base": {
       "js": [
         "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_47_0_node-84c0d3.js"
@@ -47,6 +57,14 @@
       ],
       "css": [
         "http://localhost:8080/assets/pages/sellers.css"
+      ]
+    },
+    "pages/sellerView": {
+      "js": [
+        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_47_0_node-84c0d3.js"
+      ],
+      "css": [
+        "http://localhost:8080/assets/pages/sellerView.css"
       ]
     },
     "pages/admin/users": {

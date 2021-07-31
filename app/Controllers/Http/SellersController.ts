@@ -2,7 +2,7 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Stripe from '@ioc:Adonis/Addons/Stripe'
 import Env from '@ioc:Adonis/Core/Env'
 import SellerProfile from 'App/Models/SellerProfile'
-
+import { schema } from '@ioc:Adonis/Core/Validator'
 export default class SellersController {
   public async linkStripe({ auth, response }: HttpContextContract) {
     if (!(await auth.user!.hasRole('seller'))) {
@@ -73,5 +73,23 @@ export default class SellersController {
     } else {
       return response.redirect().back()
     }
+  }
+
+  public async updateStatus({ request, auth, response }: HttpContextContract) {
+    await auth.user!.load('sellerProfile')
+
+    if (!auth.user!.sellerProfile) {
+      return response.forbidden()
+    }
+
+    const data = await request.validate({
+      schema: schema.create({
+        status: schema.enum(['available', 'unavailable', 'vacation'] as const),
+      }),
+    })
+
+    auth.user!.sellerProfile.status = data.status
+    await auth.user!.sellerProfile.save()
+    return response.ok({})
   }
 }

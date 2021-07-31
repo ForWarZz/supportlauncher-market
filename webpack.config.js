@@ -54,10 +54,12 @@ Encore.addStyleEntry('fonts', './resources/scss/fonts.scss')
 Encore.addStyleEntry('pages/errors', './resources/scss/pages/errors.scss')
 Encore.addStyleEntry('pages/home', './resources/scss/pages/home.scss')
 Encore.addStyleEntry('pages/sellers', './resources/scss/pages/sellers.scss')
+Encore.addStyleEntry('pages/sellerView', './resources/scss/pages/seller-view.scss')
 Encore.addEntry('pages/admin/home', './resources/js/pages/admin/home.ts')
 Encore.addStyleEntry('pages/admin/users', './resources/scss/pages/admin/users.scss')
 Encore.addStyleEntry('pages/admin/userInfo', './resources/scss/pages/admin/userInfo.scss')
 Encore.addStyleEntry('pages/user/profile', './resources/scss/pages/user/profile.scss')
+Encore.addEntry('pages/my-services', './resources/js/pages/my-services/base.ts')
 
 /*
 |--------------------------------------------------------------------------

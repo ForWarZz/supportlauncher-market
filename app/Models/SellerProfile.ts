@@ -1,7 +1,7 @@
 import { BaseModel, column, hasOne, HasOne } from '@ioc:Adonis/Lucid/Orm'
 import User from './User'
 
-export type SellerStatus = 'available' | 'unavailale' | 'vacation'
+export type SellerStatus = 'available' | 'unavailable' | 'vacation'
 
 export default class SellerProfile extends BaseModel {
   @column({ isPrimary: true })

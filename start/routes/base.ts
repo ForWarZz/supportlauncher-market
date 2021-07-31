@@ -4,6 +4,7 @@ import Application from '@ioc:Adonis/Core/Application'
 Route.group(() => {
   Route.get('/', 'BaseController.home').as('home')
   Route.get('/vendeurs', 'BaseController.sellers').as('sellers')
+  Route.get('/vendeurs/:id', 'BaseController.sellerView').as('sellerView')
 
   if (!Application.inProduction) {
     Route.get('/errors/:any?', async ({ view, params }) => {
