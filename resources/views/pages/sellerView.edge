@@ -1,0 +1,46 @@
+@layout('layouts/base')
+
+@section('styles')
+  @entryPointStyles('pages/sellerView')
+@endsection
+
+@section('body')
+<main id="seller-view">
+  <div class="container">
+    <h1 class="title">
+      <span class="username">
+        {{ seller.username }}
+      </span>
+      @if (seller.sellerProfile.certified)
+        <div class="certified">
+          <i class="fa fa-certificate badge-bg"></i>
+          <i class="fa fa-check badge-fg"></i>
+          <span class="label">Certifié</span>
+        </div>
+      @endif
+    </h1>
+
+    <div class="status">
+      <span class="status-indicator status-{{ seller.sellerProfile.status }}" :class="status"></span>
+      <p class="text">
+        Ce vendeur est actuellement
+        @if (seller.sellerProfile.status == 'available')~
+          <span class="label">disponible</span>
+        @elseif (seller.sellerProfile.status == 'unavailable')~
+          <span class="label">indisponible</span>
+        @elseif (seller.sellerProfile.status == 'vacation')~
+          <span class="label">en vacances</span>
+        @endif
+      </p>
+    </div>
+
+    <section class="biography">
+      @if(seller.sellerProfile.bio)
+        <p>{{{ seller.sellerProfile.bio }}}</p>
+      @else
+        <p class="italic">Pas de description</p>
+      @endif
+    </section>
+  </div>
+</main>
+@endsection

@@ -59,6 +59,14 @@
         "http://localhost:8080/assets/pages/sellers.css"
       ]
     },
+    "pages/sellerView": {
+      "js": [
+        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_47_0_node-84c0d3.js"
+      ],
+      "css": [
+        "http://localhost:8080/assets/pages/sellerView.css"
+      ]
+    },
     "pages/admin/users": {
       "js": [
         "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_47_0_node-84c0d3.js"

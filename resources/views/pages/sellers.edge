@@ -37,7 +37,7 @@
 
           <div class="container">
             <h2 class="username">
-              <a href="#">{{ seller.username }}</a>
+              <a href="{{ route('base.sellerView', {id: seller.id}) }}">{{ seller.username }}</a>
               @if (seller.sellerProfile.certified)
                 <div class="certified">
                   <i class="fa fa-certificate badge-bg"></i>
@@ -49,7 +49,7 @@
             @if(seller.sellerProfile.bio)
               <p>{{ seller.sellerProfile.bio }}</p>
             @else
-              <p class="italic">Pas de biographie</p>
+              <p class="italic">Pas de description</p>
             @endif
           </div>
         </article>

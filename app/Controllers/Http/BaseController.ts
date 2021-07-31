@@ -28,4 +28,14 @@ export default class BasesController {
       sellers,
     })
   }
+
+  public async sellerView({ view, params }: HttpContextContract) {
+    const seller = await User.findOrFail(params.id)
+
+    await seller.load('sellerProfile')
+
+    return view.render('pages/sellerView', {
+      seller,
+    })
+  }
 }
