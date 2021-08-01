@@ -60,11 +60,7 @@ export default class User extends BaseModel {
   /**
    * User's roles relation
    */
-  @manyToMany(() => Role, {
-    onQuery: (query) => {
-      query.where('active', true)
-    },
-  })
+  @manyToMany(() => Role)
   public roles: ManyToMany<typeof Role>
 
   @hasOne(() => SellerProfile)

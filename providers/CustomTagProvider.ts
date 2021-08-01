@@ -1,5 +1,6 @@
 import { ApplicationContract } from '@ioc:Adonis/Core/Application'
 import format from 'date-fns/format'
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import fr from 'date-fns/locale/fr'
 
 /*
@@ -40,6 +41,13 @@ export default class CustomTagProvider {
 
     View.global('formatDate', (date: Date) => {
       return format(new Date(date), 'P', {
+        locale: fr,
+      })
+    })
+
+    View.global('dateFromNow', (date: Date) => {
+      return formatDistanceToNow(new Date(date), {
+        addSuffix: true,
         locale: fr,
       })
     })

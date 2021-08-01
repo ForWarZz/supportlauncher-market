@@ -71,6 +71,18 @@
         }
       }
     }
+
+    .delete-role {
+      @apply bg-red-500 text-center;
+
+      &:hover {
+        @apply bg-red-400;
+      }
+
+      &.disabled {
+        @apply bg-red-300;
+      }
+    }
   }
 
   #new-role-form {
@@ -91,5 +103,19 @@
     .button {
       @apply mt-1;
     }
+  }
+
+  #roles-list {
+    td:last-child {
+      @apply text-right;
+
+      i {
+        @apply m-0;
+      }
+    }
+  }
+
+  .ban_button {
+    @apply w-auto block;
   }
 }

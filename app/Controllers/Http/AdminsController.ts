@@ -1,6 +1,7 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Role from 'App/Models/Role'
 import User from 'App/Models/User'
+import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 export default class AdminsController {
   public async home({ view }: HttpContextContract) {
@@ -76,9 +77,15 @@ export default class AdminsController {
 
     if (user) {
       await user.load('sellerProfile')
-      await user.load('roles')
+      await user.load('roles', (roleQuery) => {
+        roleQuery.orderBy('level', 'asc').orderBy('name', 'asc')
+      })
 
-      let roleQuery = Role.query().select('id', 'name', 'slug', 'active', 'level')
+      let roleQuery = Role.query()
+        .select('id', 'name', 'slug', 'active', 'level')
+        .whereDoesntHave('users', (query) => query.where('id', user.id))
+        .orderBy('level', 'asc')
+        .orderBy('name', 'asc')
 
       if (auth.user!.hasRole('superadmin')) {
         roleQuery = roleQuery.where('level', '>', '0')
@@ -95,5 +102,113 @@ export default class AdminsController {
     } else {
       return view.render('errors/not_found.edge')
     }
+  }
+
+  public async addRole({ params, request, logger, response }: HttpContextContract) {
+    const user = await User.find(params.id)
+
+    if (!user) {
+      return response.redirect().toRoute('admin.userInfo', {
+        id: params.id,
+      })
+    }
+
+    const data = await request.validate({
+      schema: schema.create({
+        role: schema.string({}, [
+          rules.required(),
+          rules.exists({
+            column: 'slug',
+            table: 'roles',
+          }),
+        ]),
+      }),
+    })
+
+    const role = await Role.findBy('slug', data.role)
+
+    if (!role) {
+      return response.redirect().back()
+    }
+
+    try {
+      await user.related('roles').attach([role.id])
+    } catch (error) {
+      logger.error(error)
+    }
+
+    return response.redirect().toRoute('admin.userInfo', {
+      id: params.id,
+    })
+  }
+
+  public async deleteRole({ params, logger, response }: HttpContextContract) {
+    const user = await User.find(params.id)
+    const role = await Role.findBy('slug', params.role)
+
+    if (
+      !user ||
+      !role ||
+      role.slug === 'superadmin' ||
+      (role.slug === 'admin' && !user.hasRole('superadmin'))
+    ) {
+      return response.redirect().toRoute('admin.userInfo', {
+        id: params.id,
+      })
+    }
+
+    try {
+      await user.related('roles').detach([role.id])
+    } catch (error) {
+      logger.error(error)
+    }
+
+    return response.redirect().toRoute('admin.userInfo', {
+      id: params.id,
+    })
+  }
+
+  public async banUser({ params, request, logger, response }: HttpContextContract) {
+    const user = await User.find(params.id)
+
+    if (!user) {
+      return response.redirect().toRoute('admin.userInfo', {
+        id: params.id,
+      })
+    }
+
+    try {
+      await User.query().where('id', user.id).update({
+        banned: true,
+      })
+    } catch (error) {
+      logger.error(error)
+    }
+
+    return response.redirect().toRoute('admin.userInfo', {
+      id: params.id,
+    })
+  }
+
+  public async unbanUser({ params, logger, response }: HttpContextContract) {
+    const user = await User.find(params.id)
+
+    if (!user) {
+      return response.redirect().toRoute('admin.userInfo', {
+        id: params.id,
+      })
+    }
+
+    try {
+      await User.query().where('id', user.id).update({
+        banned: false,
+      })
+    } catch (error) {
+      logger.error(error)
+    }
+
+    return response.redirect().toRoute('admin.userInfo', {
+      id: params.id,
+    })
   }
 }

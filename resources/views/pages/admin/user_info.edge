@@ -32,14 +32,24 @@
             </tr>
             <tr>
               <th>Dernières connexion</th>
-              <td>{{ user.lastLogin }}</td>
+              <td>{{ dateFromNow(user.lastLogin) }} ({{ formatDate(user.lastLogin) }})</td>
             </tr>
             <tr>
               <th>Bannis ?</th>
               <td>
                 <div class="checkbox-field">
-                  <input type="checkbox" name="banned" id="banned" {{ user.banned ? 'checked' : '' }} class="checkbox" {{ auth.user.id == user.id || await user.hasRole('superadmin') || !(await user.hasRole('admin') && await auth.user.hasRole('superadmin')) ? 'disabled' : '' }}>
-                  <label for="banned">{{ user.banned ? 'Oui' : 'Non' }}</label>
+                  @set('ban_disabled', auth.user.id == user.id || await user.hasRole('superadmin') || (await user.hasRole('admin') && !await auth.user.hasRole('superadmin')))
+                  @if(user.banned)
+                    <a href="{{ !ban_disabled ? route('admin.unbanUser', { id: user.id }) : '#' }}" class="button ban_button{{ ban_disabled ? ' disabled' : '' }}">
+                      <i class="fas fa-check"></i>
+                      Oui
+                    </a>
+                  @else
+                    <a href="{{ !ban_disabled ? route('admin.banUser', { id: user.id }) : '#' }}" class="button ban_button {{ ban_disabled ? ' disabled' : '' }}">
+                      <i class="fas fa-times"></i>
+                      Non
+                    </a>
+                  @endif
                 </div>
               </td>
             </tr>
@@ -51,16 +61,17 @@
     <section>
       <h2 class="title">Rôles</h2>
 
-      <form id="new-role-form" method="POST" action="#">
+      <form id="new-role-form" method="POST" action="{{ route('admin.addRole', { id: user.id }) }}">
+        {{ csrfField() }}
         <div>
           <label for="new-role" class="label">Ajouter un rôle</label>
           <div class="select-field with-icon">
             <div class="icon">
               <i class="fas fa-tags"></i>
             </div>
-            <select name="new_role" id="new-role" class="select">
+            <select name="role" id="new-role" class="select">
               @each(role in allRoles)
-                <option value="{{ role.id }}">{{ role.name }}</option>
+                <option value="{{ role.slug }}">{{ role.name }}</option>
               @endeach
             </select>
           </div>
@@ -69,7 +80,7 @@
       </form>
 
       <div class="table-container">
-        <table>
+        <table id="roles-list">
           <thead>
             <th>Nom</th>
             <th>Actions</th>
@@ -79,9 +90,10 @@
               <tr>
                 <td>{{ role.name }}</td>
                 <td>
-                  <button class="button">
+                  @set('is_disabled', role.slug == 'superadmin' || role.slug === 'admin' && !user.hasRole('superadmin'))
+                  <a class="button delete-role{{ is_disabled ? ' disabled' : '' }}" href="{{ !is_disabled ? route('admin.deleteRole', { id: user.id, role: role.slug }) : '#' }}">
                     <i class="fas fa-trash"></i>
-                  </button>
+                  </a>
                 </td>
               </tr>
             @endeach
