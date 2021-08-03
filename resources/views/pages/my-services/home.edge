@@ -1,7 +1,23 @@
 @layout('layouts/my-services')
 
 @section('body')
-  <h1>général</h1>
+  <h1 class="title">Résumé de mon profile</h1>
+
+  <section class="card">
+    <div class="icon"><i class="fas fa-book"></i></div>
+    <form class="seller-description" method="POST" action="{{ route('my-services.update-bio') }}">
+      {{ csrfField() }}
+      <div class="editor-container">
+        <textarea name="content" id="editor">{{{ auth.user.sellerProfile.bio || '' }}}</textarea>
+      </div>
+      <div class="actions">
+        <button  class="button" type="submit">
+          <i class="fas fa-save"></i>
+          Enregistrer
+        </button>
+      </div>
+    </div>
+  </section>
 @endsection
 
 @section('styles')

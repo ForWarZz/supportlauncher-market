@@ -14,6 +14,9 @@ export default class SellerProfile extends BaseModel {
   public status: SellerStatus
 
   @column()
+  public bio: string
+
+  @column()
   public stripeAccountId: string
 
   @hasOne(() => User)

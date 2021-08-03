@@ -8,15 +8,15 @@
     </a>
 
     <span class="menubar">
-      @if(auth.isLoggedIn && !auth.user.banned)
-        <a href="{{ route('base.sellers') }}" class="{{ request.matchesRoute('/sellers') ? 'active' : '' }}">Vendeurs</a>
-        @can('AdminPolicy.accessPanel')
-          <a href="{{ route('admin.home') }}" class="{{ request.matchesRoute('/admin') ? 'active' : '' }}">
-            Administration
-          </a>
-        @endcan
-      @endif
+      <a href="{{ route('base.sellers') }}" class="{{ request.matchesRoute('/sellers') ? 'active' : '' }}">Vendeurs</a>
       @loggedIn
+        @if(!auth.user.banned)
+          @can('AdminPolicy.accessPanel')
+            <a href="{{ route('admin.home') }}" class="{{ request.matchesRoute('/admin') ? 'active' : '' }}">
+              Administration
+            </a>
+          @endcan
+        @endif
         <div class="navbar-dropdown">
           <span>
             <img src="{{ auth.user.avatar }}" alt="User's Avatar" class="avatar">
