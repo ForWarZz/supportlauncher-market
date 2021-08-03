@@ -87,7 +87,7 @@ export default class AdminsController {
         .orderBy('level', 'asc')
         .orderBy('name', 'asc')
 
-      if (auth.user!.hasRole('superadmin')) {
+      if (await auth.user!.hasRole('superadmin')) {
         roleQuery = roleQuery.where('level', '>', '0')
       } else {
         roleQuery = roleQuery.where('level', '>', '1')
@@ -133,6 +133,10 @@ export default class AdminsController {
 
     try {
       await user.related('roles').attach([role.id])
+
+      if (role.slug === 'seller') {
+        await user.related('sellerProfile').firstOrCreate({})
+      }
     } catch (error) {
       logger.error(error)
     }
@@ -150,7 +154,7 @@ export default class AdminsController {
       !user ||
       !role ||
       role.slug === 'superadmin' ||
-      (role.slug === 'admin' && !user.hasRole('superadmin'))
+      (role.slug === 'admin' && !(await user.hasRole('superadmin')))
     ) {
       return response.redirect().toRoute('admin.userInfo', {
         id: params.id,
@@ -159,6 +163,10 @@ export default class AdminsController {
 
     try {
       await user.related('roles').detach([role.id])
+
+      if (role.slug === 'seller') {
+        await user.related('sellerProfile').query().delete()
+      }
     } catch (error) {
       logger.error(error)
     }

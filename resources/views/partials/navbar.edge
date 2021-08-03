@@ -31,7 +31,7 @@
                   <i class="fas fa-user"></i>
                 </a>
               </li>
-              @if(auth.user.hasPermission('seller:canSell'))
+              @if(await auth.user.hasPermission('seller:canSell'))
                 <li>
                   <a href="{{ route('my-services.home') }}">
                     Mes services
