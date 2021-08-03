@@ -1,0 +1,75 @@
+.user-item {
+  &:hover {
+    @apply bg-gray-100;
+  }
+
+  td {
+    @apply p-5 border-b border-gray-200 text-sm;
+  }
+
+  td.user-profile a {
+    @apply flex items-center flex-shrink-0 text-indigo-600;
+
+    .avatar-container {
+      @apply flex-shrink-0;
+
+      img {
+        @apply mx-auto object-cover rounded-full h-10 w-10 shadow-md transition-shadow duration-100 ease-in-out ring-2 ring-transparent;
+      }
+    }
+
+    &:hover {
+      @apply text-indigo-500;
+
+      .avatar-container img {
+        @apply ring-indigo-400;
+      }
+    }
+
+    .username {
+      @apply ml-3 whitespace-nowrap font-semibold;
+    }
+  }
+
+  td.roles li {
+    @apply leading-4 italic;
+  }
+
+  td .date {
+    @apply text-gray-900 whitespace-nowrap;
+  }
+
+  .actions {
+    @apply flex justify-end;
+
+    button,
+    a {
+      @apply text-indigo-600 w-8 h-8 rounded-full transition-colors ease-in duration-100 bg-opacity-80 flex items-center justify-center;
+
+      &:hover {
+        @apply text-indigo-500 bg-gray-300;
+      }
+
+      &:not(:last-child) {
+        @apply mr-1;
+      }
+    }
+
+    button.delete,
+    a.ban {
+      @apply text-red-600;
+
+      &:hover {
+        @apply text-red-500;
+      }
+    }
+
+    a.unban {
+      @apply text-green-600;
+
+      &:hover {
+        @apply text-green-500;
+      }
+    }
+  }
+}

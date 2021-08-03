@@ -1,0 +1,63 @@
+@layout('layouts/base')
+
+@section('styles')
+  @entryPointStyles('pages/sellers')
+@endsection
+
+@section('body')
+<main id="sellers">
+  <aside class="side-menu">
+    <h1 class="title">Recherche</h1>
+    <form action="{{ route('base.sellers') }}" method="GET">
+      <ul>
+        <li>
+          <label for="search" class="label">Nom du vendeur</label>
+          @!component('components/input', {
+            icon: 'fas fa-search',
+            id: 'search',
+            value: request.input('search'),
+            type: 'search',
+            name: 'search',
+            placeholder: 'Nom du vendeur',
+          })
+        </li>
+        <li>
+          <button class="button search-button" type="submit">Rechercher</button>
+        </li>
+      </ul>
+    </form>
+  </aside>
+  <div class="content">
+    <h1 class="title">Liste des vendeurs</h1>
+
+    <section>
+      @each(seller in sellers)
+        <article class="seller-container">
+          <img src="{{ seller.avatar }}" alt="Avatar de {{ seller.username }}" class="avatar">
+
+          <div class="container">
+            <h2 class="username">
+              <a href="{{ route('base.sellerView', {id: seller.id}) }}">{{ seller.username }}</a>
+              @if (seller.sellerProfile.certified)
+                <div class="certified">
+                  <i class="fa fa-certificate badge-bg"></i>
+                  <i class="fa fa-check badge-fg"></i>
+                  <span class="label">Certifié</span>
+                </div>
+              @endif
+            </h2>
+          </div>
+        </article>
+      @else
+        <p>Il n'y a aucun vendeur pour le moment</p>
+      @endeach
+    </section>
+
+    <div>
+      @!component('components/pagination', {
+        collection: sellers
+      })
+    </div>
+  </div>
+</main>
+@endsection

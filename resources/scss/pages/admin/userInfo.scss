@@ -1,0 +1,121 @@
+@import './base.scss';
+@import '../../components/select.scss';
+@import '../../components/checkbox.scss';
+
+#admin-userinfo {
+  header {
+    @apply flex flex-row mb-1 justify-between w-full;
+
+    @screen sm {
+      @apply mb-0;
+    }
+
+    .title {
+      @apply relative w-full;
+      .username {
+        @apply text-gray-900 uppercase font-semibold px-2 mb-8 text-4xl;
+      }
+
+      .certified {
+        @apply absolute cursor-pointer inline-block ml-1 top-0 mt-1;
+
+        .badge-bg {
+          @apply text-2xl text-blue-400;
+        }
+
+        .badge-fg {
+          @apply text-sm text-white absolute left-0 top-0;
+
+          margin-left: 0.325em;
+          margin-top: 0.5em;
+        }
+
+        .label {
+          @apply opacity-0 transition-opacity ease-out duration-200 block absolute px-2 py-1 rounded-md bg-gray-700 text-gray-100 bottom-0 left-0 ml-6 mt-2;
+        }
+
+        &:hover .label {
+          @apply opacity-100;
+        }
+      }
+    }
+  }
+
+  section {
+    @apply bg-white shadow-sm rounded-lg p-4 m-4;
+
+    .title {
+      @apply text-purple-500 font-semibold px-2 mb-2 text-xl;
+    }
+    .table-container {
+      @apply p-4;
+
+      table {
+        @apply table-auto text-left w-full;
+
+        th {
+          max-width: theme('width.16');
+        }
+
+        th,
+        td {
+          @apply p-4;
+        }
+
+        thead {
+          @apply border-b border-gray-400;
+        }
+
+        tr:not(:last-child) {
+          @apply border-b border-gray-200;
+        }
+      }
+    }
+
+    .delete-role {
+      @apply bg-red-500 text-center;
+
+      &:hover {
+        @apply bg-red-400;
+      }
+
+      &.disabled {
+        @apply bg-red-300;
+      }
+    }
+  }
+
+  #new-role-form {
+    @apply p-4 flex flex-col items-center;
+
+    @screen md {
+      @apply flex-row gap-3 h-20 mt-4;
+
+      max-width: theme('width.64');
+    }
+
+    .select-field {
+      @apply mb-4;
+
+      min-width: theme('width.64');
+    }
+
+    .button {
+      @apply mt-1;
+    }
+  }
+
+  #roles-list {
+    td:last-child {
+      @apply text-right;
+
+      i {
+        @apply m-0;
+      }
+    }
+  }
+
+  .ban_button {
+    @apply w-auto block;
+  }
+}

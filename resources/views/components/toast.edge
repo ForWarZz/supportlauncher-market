@@ -1,0 +1,12 @@
+@if(flashMessage.has('notifications'))
+<div class="toast-container">
+  @each(flashMessage.get('notifications') as n)
+    <div class="toast">
+      <span class="content">{{ n.content }}</span>
+      <div class="actions">
+        <button><i class="fas fa-times"></i></button>
+      </div>
+    </div>
+  @endeach
+</div>
+@endif

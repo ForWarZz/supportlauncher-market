@@ -1,0 +1,22 @@
+<div class="pagination-container">
+  <div class="pagination">
+    @set('startLink', collection.currentPage - 2 > collection.firstPage ? collection.currentPage - 2 : collection.firstPage)
+    @set('endLink',   collection.currentPage + 2 < collection.lastPage  ? collection.currentPage + 2 : collection.lastPage)
+
+    @if(collection.currentPage > collection.firstPage)
+      <a href="">
+        <i className="fas fa-chevron-left"></i>
+      </a>
+    @end
+    @each(anchor in collection.getUrlsForRange(startLink, endLink))
+      <a href="{{ anchor.url }}" {{ collection.currentPage === anchor.page ? 'class=active' : '' }}>
+        {{ anchor.page }}
+      </a>
+    @endeach
+    @if(collection.currentPage < collection.lastPage)
+      <a href="">
+        <i className="fas fa-chevron-right"></i>
+      </a>
+    @end
+  </div>
+</div>

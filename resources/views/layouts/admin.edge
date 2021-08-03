@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SL-Market</title>
+
+    @entryPointStyles('base')
+    @entryPointStyles('fonts')
+    @!section('styles')
+    @!section('scripts-head')
+  </head>
+  <body>
+    @include('partials/navbar')
+
+    <main id="admin">
+      <aside class="side-menu">
+        <h1 class="title">Administration</h1>
+        <ul>
+          <li>
+            <a href="{{ route('admin.home') }}" class="{{ request.matchesRoute('admin.home') ? 'active' : '' }}">
+              <i class="fas fa-home"></i>
+              Général
+            </a>
+          </li>
+          @can('AdminPolicy.viewUsers')
+          <li>
+            <a href="{{ route('admin.users') }}" class="{{ request.matchesRoute('admin.users') ? 'active' : '' }}">
+              <i class="fas fa-users"></i>
+              Utilisateurs
+            </a>
+          </li>
+          @endcan
+        </ul>
+      </aside>
+      <div class="content">
+        @!section('body')
+      </div>
+    </main>
+
+    @entryPointScripts('base')
+    @!section('scripts')
+  </body>
+</html>

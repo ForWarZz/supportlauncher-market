@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SL-Market</title>
+
+  @entryPointStyles('base')
+  @entryPointStyles('fonts')
+  @!section('styles')
+  @!section('scripts-head')
+</head>
+<body>
+  @include('partials/navbar')
+
+  <main id="my-services">
+    <aside class="side-menu">
+      <div class="status-container"  x-data="statusMenu" x-init="status = 'status-{{ auth.user.sellerProfile.status }}'"  :class="{ 'active': open }">
+        {{ csrfField() }}
+        <button @click="open = !open" @click.away="open = false">
+          <p>Statut:</p>
+          <span class="status-indicator" :class="status"></span>
+        </button>
+
+        <ul class="status-list" x-show="open" x-cloak>
+          <li>
+            <button @click="updateStatus('available')">
+              <span class="status-indicator status-available"></span>
+              <p>Disponible</p>
+            </button>
+          </li>
+          <li>
+            <button @click="updateStatus('unavailable')">
+              <span class="status-indicator status-unavailable"></span>
+              <p>Indisponible</p>
+            </button>
+          </li>
+          <li>
+            <button @click="updateStatus('vacation')">
+              <span class="status-indicator status-vacation"></span>
+              <p>En vacances</p>
+            </button>
+          </li>
+        </ul>
+      </div>
+      <h1 class="title">Mes services</h1>
+      <ul>
+        <li>
+          <a href="{{ route('my-services.home') }}" class="{{ request.matchesRoute('my-services.home') ? 'active' : '' }}">
+            <i class="fas fa-home"></i>
+            Général
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fas fa-shopping-cart"></i>
+            Mes services
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fas fa-users"></i>
+            Mes contacts
+          </a>
+        </li>
+      </ul>
+    </aside>
+    <div class="content">
+      @!section('body')
+    </div>
+  </main>
+
+  @entryPointScripts('base')
+  @entryPointScripts('pages/my-services')
+  @!section('scripts')
+</body>
+</html>

@@ -1,0 +1,34 @@
+@layout('layouts/base')
+
+@section('styles')
+  @entryPointStyles('pages/user/profile')
+@endsection
+
+@section('body')
+  <main id="profile">
+    <header>
+      <h2 class="title">Mon profil</h2>
+    </header>
+
+    @if(await auth.user.hasRole('seller'))
+      <section>
+        <h3 class="title">Vendeur</h3>
+        <div class="options">
+          <p>
+            Afin de pouvoir vendre vos service, il est nécessaire de lier un compte Stripe à votre
+            profil:
+          </p>
+          @can('SellerPolicy.canSell')
+            <a href="{{ route('seller.unlinkStripe')}}" class="button stripe-connect">
+              Déconnexion de <img src="{{ asset('assets/images/stripe_logo.svg') }}"/>
+            </a>
+          @else
+            <a href="{{ route('seller.linkStripe')}}" class="button stripe-disconnect">
+              Se connecter avec <img src="{{ asset('assets/images/stripe_logo.svg') }}"/>
+            </a>
+          @end
+        </div>
+      </section>
+    @endif
+  </main>
+@endsection

@@ -1,0 +1,66 @@
+@layout('layouts/admin')
+
+@section('styles')
+  @entryPointStyles('pages/admin/users')
+@endsection
+@section('scripts')
+  @entryPointScripts('pages/admin/users')
+@endsection
+
+@section('body')
+  <div id="admin-users" x-data="modal">
+    <header>
+      <h2 class="title">Utilisateurs</h2>
+
+      <div class="form-container">
+        <form action="{{ route('admin.users') }}" method="GET">
+          <div class="relative">
+            @!component('components/input', {
+              id: 'user-search',
+              placeholder: 'Rechercher',
+              icon: 'fas fa-search',
+              type: 'search',
+              name: 'search',
+              value: request.input('search', null)
+            })
+          </div>
+          <button class="button search-button" type="submit">
+            <i class="fas fa-search"></i>
+            Rechercher
+          </button>
+        </form>
+      </div>
+    </header>
+
+    @if(users)
+      <div class="table-container">
+        <div class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Utilisateur</th>
+                <th>Rôle(s)</th>
+                <th>Créé le</th>
+                <th>Dernière connexion</th>
+              </tr>
+            </thead>
+            <tbody>
+              @each(u in users.rows)
+                @!component('components/pages/admin/user_item', {
+                  user: u
+                })
+              @endeach
+            </tbody>
+          </table>
+
+          @!component('components/pagination', {
+            collection: users
+          })
+        </div>
+      </div>
+    @else
+      <p>Impossible de récupérer la liste des utilisateurs.</p>
+    @endif
+
+  </div>
+@endsection

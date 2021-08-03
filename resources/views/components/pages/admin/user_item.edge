@@ -1,0 +1,25 @@
+<tr class="user-item">
+  <td class="user-profile">
+    <a href="{{  route('admin.userInfo', {id: user.id}) }}">
+      <div class="avatar-container">
+        <img src="{{ user.avatar }}" alt="profil">
+      </div>
+      <p class="username">
+        {{ user.username }}
+      </p>
+    </a>
+  </td>
+  <td class="roles">
+    <ul>
+      @each(r in user.roles)
+        <li>{{ r.name }}</li>
+      @endeach
+    </ul>
+  </td>
+  <td>
+    <p class="date">{{ formatDate(user.createdAt) }}</p>
+  </td>
+  <td>
+    <p class="date">{{ formatDate(user.lastLogin) }}</p>
+  </td>
+</tr>

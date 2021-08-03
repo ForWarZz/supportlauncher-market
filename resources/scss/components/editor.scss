@@ -1,0 +1,47 @@
+.ck-content {
+  & > blockquote,
+  & > dl,
+  & > dd,
+  & > h1,
+  & > h2,
+  & > h3,
+  & > h4,
+  & > h5,
+  & > h6,
+  & > hr,
+  & > figure,
+  & > p,
+  & > pre {
+    margin: revert;
+  }
+
+  & > ol,
+  & > ul {
+    list-style: revert;
+    margin: revert;
+    padding: revert;
+  }
+
+  & > table {
+    border-collapse: revert;
+  }
+
+  & > h1,
+  & > h2,
+  & > h3,
+  & > h4,
+  & > h5,
+  & > h6 {
+    font-size: revert;
+    font-weight: revert;
+    @apply border-b border-gray-300;
+  }
+
+  a {
+    @apply text-purple-600;
+
+    &:hover {
+      @apply text-purple-500;
+    }
+  }
+}

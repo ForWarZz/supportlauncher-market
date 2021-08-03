@@ -1,0 +1,30 @@
+@import '../partials/navbar.scss';
+
+#errors {
+  @apply flex h-full justify-center items-center bg-gradient-to-b from-blue-500 to-blue-400;
+  .box {
+    @apply rounded bg-gray-100 px-8 py-6 shadow-md mx-2;
+
+    width: 32rem;
+
+    .title {
+      @apply uppercase text-xl font-bold mb-6;
+    }
+
+    .description {
+      @apply mx-4 leading-none;
+    }
+
+    .actions {
+      @apply text-center mt-2;
+
+      .back-link {
+        @apply text-sm text-indigo-600 transition-colors duration-100 ease-in;
+
+        &:hover {
+          @apply text-indigo-400;
+        }
+      }
+    }
+  }
+}

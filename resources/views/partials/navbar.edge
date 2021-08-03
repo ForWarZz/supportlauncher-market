@@ -1,0 +1,59 @@
+<nav id="navbar">
+  <div class="nav-container">
+    <a href="{{ route('base.home') }}" class="logo-link">
+      <span class="logo-container">
+        <img src="{{ asset('assets/images/logo.svg') }}" alt="SL-Market's logo">
+      </span>
+      <span class="title-container">SL-Market</span>
+    </a>
+
+    <span class="menubar">
+      <a href="{{ route('base.sellers') }}" class="{{ request.matchesRoute('/sellers') ? 'active' : '' }}">Vendeurs</a>
+      @loggedIn
+        @if(!auth.user.banned)
+          @can('AdminPolicy.accessPanel')
+            <a href="{{ route('admin.home') }}" class="{{ request.matchesRoute('/admin') ? 'active' : '' }}">
+              Administration
+            </a>
+          @endcan
+        @endif
+        <div class="navbar-dropdown">
+          <span>
+            <img src="{{ auth.user.avatar }}" alt="User's Avatar" class="avatar">
+            {{ auth.user.username }}
+            <i class="fas fa-caret-down"></i>
+          </span>
+          <ul class="dropdown">
+            @if(auth.isLoggedIn && !auth.user.banned)
+              <li>
+                <a href="{{ route('user.profile') }}">
+                  Mon profil
+                  <i class="fas fa-user"></i>
+                </a>
+              </li>
+              @if(auth.user.hasPermission('seller:canSell'))
+                <li>
+                  <a href="{{ route('my-services.home') }}">
+                    Mes services
+                    <i class="fas fa-shopping-cart"></i>
+                  </a>
+                </li>
+              @endif
+            @endif
+            <li>
+              <a href="{{ route('auth.logout') }}">
+                Déconnexion
+                <i class="fas fa-sign-out-alt"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      @else
+        <a href="{{ route('auth.redirect') }}" class="discord-btn button">
+          <i class="fab fa-discord"></i>
+          Authentification
+        </a>
+      @endloggedIn
+    </span>
+  </div>
+</nav>
