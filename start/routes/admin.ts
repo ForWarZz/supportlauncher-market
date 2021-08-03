@@ -13,8 +13,25 @@ Route.group(() => {
     .where('id', /^\d+$/)
 
   Route.get('/utilisateurs/supprimer', 'AdminsController.deleteUser')
-    .as('delete_user')
+    .as('deleteUser')
     .middleware('permission:admin_deleteUser')
+
+  Route.post('/utilisateurs/:id/nouveau-role', 'AdminsController.addRole')
+    .as('addRole')
+    .middleware('permission:admin_updateUser')
+    .where('id', /^\d+$/)
+
+  Route.get('/utilisateurs/:id/supprimer-role/:role', 'AdminsController.deleteRole')
+    .as('deleteRole')
+    .middleware('permission:admin_updateUser')
+
+  Route.get('/utilisateurs/:id/bannir', 'AdminsController.banUser')
+    .as('banUser')
+    .middleware('permission:admin_updateUser')
+
+  Route.get('/utilisateurs/:id/debannir', 'AdminsController.unbanUser')
+    .as('unbanUser')
+    .middleware('permission:admin_updateUser')
 })
   .as('admin')
   .prefix('admin')

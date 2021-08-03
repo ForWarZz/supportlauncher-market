@@ -9,45 +9,50 @@
 
     <span class="menubar">
       <a href="{{ route('base.sellers') }}" class="{{ request.matchesRoute('/sellers') ? 'active' : '' }}">Vendeurs</a>
-      @can('AdminPolicy.accessPanel')
-        <a href="{{ route('admin.home') }}" class="{{ request.matchesRoute('/admin') ? 'active' : '' }}">
-          Administration
-        </a>
-      @endcan
       @loggedIn
-      <div class="navbar-dropdown">
-        <span>
-          <img src="{{ auth.user.avatar }}" alt="User's Avatar" class="avatar">
-          {{ auth.user.username }}
-          <i class="fas fa-caret-down"></i>
-        </span>
-        <ul class="dropdown">
-
-          <li>
-            <a href="{{ route('user.profile') }}">
-              Mon profil
-              <i class="fas fa-user"></i>
+        @if(!auth.user.banned)
+          @can('AdminPolicy.accessPanel')
+            <a href="{{ route('admin.home') }}" class="{{ request.matchesRoute('/admin') ? 'active' : '' }}">
+              Administration
             </a>
-          </li>
-          <li>
-            <a href="{{ route('my-services.home') }}">
-              Mes services
-              <i class="fas fa-shopping-cart"></i>
-            </a>
-          </li>
-          <li>
-            <a href="{{ route('auth.logout') }}">
-              Déconnexion
-              <i class="fas fa-sign-out-alt"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
+          @endcan
+        @endif
+        <div class="navbar-dropdown">
+          <span>
+            <img src="{{ auth.user.avatar }}" alt="User's Avatar" class="avatar">
+            {{ auth.user.username }}
+            <i class="fas fa-caret-down"></i>
+          </span>
+          <ul class="dropdown">
+            @if(auth.isLoggedIn && !auth.user.banned)
+              <li>
+                <a href="{{ route('user.profile') }}">
+                  Mon profil
+                  <i class="fas fa-user"></i>
+                </a>
+              </li>
+              @if(auth.user.hasPermission('seller:canSell'))
+                <li>
+                  <a href="{{ route('my-services.home') }}">
+                    Mes services
+                    <i class="fas fa-shopping-cart"></i>
+                  </a>
+                </li>
+              @endif
+            @endif
+            <li>
+              <a href="{{ route('auth.logout') }}">
+                Déconnexion
+                <i class="fas fa-sign-out-alt"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
       @else
-      <a href="{{ route('auth.redirect') }}" class="discord-btn button">
-        <i class="fab fa-discord"></i>
-        Authentification
-      </a>
+        <a href="{{ route('auth.redirect') }}" class="discord-btn button">
+          <i class="fab fa-discord"></i>
+          Authentification
+        </a>
       @endloggedIn
     </span>
   </div>

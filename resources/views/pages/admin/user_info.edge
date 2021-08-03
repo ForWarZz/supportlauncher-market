@@ -7,7 +7,99 @@
 @section('body')
   <div id="admin-userinfo">
     <header>
-      <h2 class="title">{{ user.username }}</h2>
+      <h1 class="title">
+        <span class="username">
+          {{ user.username }}
+        </span>
+        @if (user.sellerProfile && user.sellerProfile.certified)
+          <div class="certified">
+            <i class="fa fa-certificate badge-bg"></i>
+            <i class="fa fa-check badge-fg"></i>
+            <span class="label">Certifié</span>
+          </div>
+        @endif
+      </h1>
     </header>
+
+    <section>
+      <h2 class="title">Informations basiques</h2>
+      <div class="table-container">
+        <table>
+          <tbody>
+            <tr>
+              <th>Email</th>
+              <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+              <th>Dernières connexion</th>
+              <td>{{ dateFromNow(user.lastLogin) }} ({{ formatDate(user.lastLogin) }})</td>
+            </tr>
+            <tr>
+              <th>Bannis ?</th>
+              <td>
+                <div class="checkbox-field">
+                  @set('ban_disabled', auth.user.id == user.id || await user.hasRole('superadmin') || (await user.hasRole('admin') && !await auth.user.hasRole('superadmin')))
+                  @if(user.banned)
+                    <a href="{{ !ban_disabled ? route('admin.unbanUser', { id: user.id }) : '#' }}" class="button ban_button{{ ban_disabled ? ' disabled' : '' }}">
+                      <i class="fas fa-check"></i>
+                      Oui
+                    </a>
+                  @else
+                    <a href="{{ !ban_disabled ? route('admin.banUser', { id: user.id }) : '#' }}" class="button ban_button {{ ban_disabled ? ' disabled' : '' }}">
+                      <i class="fas fa-times"></i>
+                      Non
+                    </a>
+                  @endif
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="title">Rôles</h2>
+
+      <form id="new-role-form" method="POST" action="{{ route('admin.addRole', { id: user.id }) }}">
+        {{ csrfField() }}
+        <div>
+          <label for="new-role" class="label">Ajouter un rôle</label>
+          <div class="select-field with-icon">
+            <div class="icon">
+              <i class="fas fa-tags"></i>
+            </div>
+            <select name="role" id="new-role" class="select">
+              @each(role in allRoles)
+                <option value="{{ role.slug }}">{{ role.name }}</option>
+              @endeach
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="button">Ajouter</button>
+      </form>
+
+      <div class="table-container">
+        <table id="roles-list">
+          <thead>
+            <th>Nom</th>
+            <th>Actions</th>
+          </thead>
+          <tbody>
+            @each(role in user.roles)
+              <tr>
+                <td>{{ role.name }}</td>
+                <td>
+                  @set('is_disabled', role.slug == 'superadmin' || role.slug === 'admin' && !user.hasRole('superadmin'))
+                  <a class="button delete-role{{ is_disabled ? ' disabled' : '' }}" href="{{ !is_disabled ? route('admin.deleteRole', { id: user.id, role: role.slug }) : '#' }}">
+                    <i class="fas fa-trash"></i>
+                  </a>
+                </td>
+              </tr>
+            @endeach
+          </tbody>
+        </table>
+      </div>
+    </section>
   </div>
 @endsection

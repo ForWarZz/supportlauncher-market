@@ -1,0 +1,39 @@
+@import '../fonts.scss';
+
+label.label {
+  @apply text-gray-700;
+}
+
+.select-field {
+  @apply relative flex;
+
+  .icon {
+    @apply rounded-l-md inline-flex items-center px-3 border-t border-l bg-white border-b border-gray-300 text-gray-500 shadow-sm text-sm;
+  }
+
+  .select {
+    @apply rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base relative;
+
+    &:focus {
+      @apply outline-none ring-2 ring-blue-400 border-transparent;
+    }
+
+    &:disabled {
+      @apply bg-gray-200;
+    }
+  }
+
+  &::before {
+    @extend %fa-icon;
+    @extend .fas;
+    content: fa-content($fa-var-caret-down);
+
+    @apply absolute right-0 top-0 w-4 h-4 text-gray-600 mt-3 mr-2 pointer-events-none;
+
+    z-index: 1;
+  }
+
+  &.with-icon .select {
+    @apply rounded-l-none;
+  }
+}

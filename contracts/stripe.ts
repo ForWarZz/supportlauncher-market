@@ -1,13 +1,13 @@
 declare module '@ioc:Adonis/Addons/Stripe' {
   import StripeType from 'stripe'
 
-  interface StripeOptions extends Omit<StripeType, 'apiVersion'> {
+  interface StripeOptions extends Omit<StripeType.StripeConfig, 'apiVersion'> {
     apiVersion: string | null
   }
 
   export interface StripeConfig {
     secretKey: string
-    options: StripeType
+    options: StripeOptions
   }
 
   const Stripe: StripeType
