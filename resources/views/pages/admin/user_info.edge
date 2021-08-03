@@ -90,7 +90,7 @@
               <tr>
                 <td>{{ role.name }}</td>
                 <td>
-                  @set('is_disabled', role.slug == 'superadmin' || role.slug === 'admin' && !user.hasRole('superadmin'))
+                  @set('is_disabled', role.slug == 'superadmin' || role.slug === 'admin' && !await user.hasRole('superadmin'))
                   <a class="button delete-role{{ is_disabled ? ' disabled' : '' }}" href="{{ !is_disabled ? route('admin.deleteRole', { id: user.id, role: role.slug }) : '#' }}">
                     <i class="fas fa-trash"></i>
                   </a>

@@ -1,8 +1,35 @@
 {
   "commands": {
+    "user:admin": {
+      "settings": {
+        "loadApp": true,
+        "stayAlive": false
+      },
+      "commandPath": "./commands/UserAdmin",
+      "commandName": "user:admin",
+      "description": "Add an admin role to a user",
+      "args": [
+        {
+          "type": "string",
+          "propertyName": "id",
+          "name": "id",
+          "required": true,
+          "description": "The user ID"
+        }
+      ],
+      "aliases": [],
+      "flags": [
+        {
+          "name": "super",
+          "propertyName": "super",
+          "type": "boolean",
+          "description": "Make the user \"superadmin\" instead of \"admin\""
+        }
+      ]
+    },
     "dump:rcfile": {
       "settings": {},
-      "commandPath": "@adonisjs/core/build/commands/DumpRc",
+      "commandPath": "@adonisjs/core/commands/DumpRc",
       "commandName": "dump:rcfile",
       "description": "Dump contents of .adonisrc.json file along with defaults",
       "args": [],
@@ -13,7 +40,7 @@
       "settings": {
         "loadApp": true
       },
-      "commandPath": "@adonisjs/core/build/commands/ListRoutes",
+      "commandPath": "@adonisjs/core/commands/ListRoutes",
       "commandName": "list:routes",
       "description": "List application routes",
       "args": [],
@@ -29,7 +56,7 @@
     },
     "generate:key": {
       "settings": {},
-      "commandPath": "@adonisjs/core/build/commands/GenerateKey",
+      "commandPath": "@adonisjs/core/commands/GenerateKey",
       "commandName": "generate:key",
       "description": "Generate a new APP_KEY secret",
       "args": [],
@@ -123,7 +150,7 @@
           "name": "connection",
           "propertyName": "connection",
           "type": "string",
-          "description": "Define a custom database connection for the migration"
+          "description": "The connection flag is used to lookup the directory for the migration file"
         },
         {
           "name": "folder",
