@@ -168,7 +168,7 @@ export default class AdminsController {
     })
   }
 
-  public async banUser({ params, request, logger, response }: HttpContextContract) {
+  public async banUser({ params, logger, response }: HttpContextContract) {
     const user = await User.find(params.id)
 
     if (!user) {
