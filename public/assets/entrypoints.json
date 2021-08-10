@@ -1,8 +1,17 @@
 {
   "entrypoints": {
+    "base": {
+      "js": [
+        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_49_0_node-6f578d.js",
+        "http://localhost:8080/assets/base.js"
+      ],
+      "css": [
+        "http://localhost:8080/assets/base.css"
+      ]
+    },
     "pages/admin/home": {
       "js": [
-        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_48_0_node-6c0856.js",
+        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_49_0_node-6f578d.js",
         "http://localhost:8080/assets/pages/admin/home.js"
       ],
       "css": [
@@ -11,25 +20,17 @@
     },
     "pages/my-services": {
       "js": [
-        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_48_0_node-6c0856.js",
-        "http://localhost:8080/assets/vendors-node_modules_pnpm_alpinejs_3_2_2_node_modules_alpinejs_dist_module_esm_js-node_module-e8ddfb.js",
+        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_49_0_node-6f578d.js",
+        "http://localhost:8080/assets/vendors-node_modules_pnpm_alpinejs_3_2_3_node_modules_alpinejs_dist_module_esm_js-node_module-c17f0a.js",
         "http://localhost:8080/assets/pages/my-services.js"
       ],
       "css": [
         "http://localhost:8080/assets/pages/my-services.css"
       ]
     },
-    "base": {
-      "js": [
-        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_48_0_node-6c0856.js"
-      ],
-      "css": [
-        "http://localhost:8080/assets/base.css"
-      ]
-    },
     "fonts": {
       "js": [
-        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_48_0_node-6c0856.js"
+        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_49_0_node-6f578d.js"
       ],
       "css": [
         "http://localhost:8080/assets/fonts.css"
@@ -37,7 +38,7 @@
     },
     "pages/errors": {
       "js": [
-        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_48_0_node-6c0856.js"
+        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_49_0_node-6f578d.js"
       ],
       "css": [
         "http://localhost:8080/assets/pages/errors.css"
@@ -45,7 +46,7 @@
     },
     "pages/home": {
       "js": [
-        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_48_0_node-6c0856.js"
+        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_49_0_node-6f578d.js"
       ],
       "css": [
         "http://localhost:8080/assets/pages/home.css"
@@ -53,7 +54,7 @@
     },
     "pages/sellers": {
       "js": [
-        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_48_0_node-6c0856.js"
+        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_49_0_node-6f578d.js"
       ],
       "css": [
         "http://localhost:8080/assets/pages/sellers.css"
@@ -61,7 +62,7 @@
     },
     "pages/sellerView": {
       "js": [
-        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_48_0_node-6c0856.js"
+        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_49_0_node-6f578d.js"
       ],
       "css": [
         "http://localhost:8080/assets/pages/sellerView.css"
@@ -69,7 +70,7 @@
     },
     "pages/admin/users": {
       "js": [
-        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_48_0_node-6c0856.js"
+        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_49_0_node-6f578d.js"
       ],
       "css": [
         "http://localhost:8080/assets/pages/admin/users.css"
@@ -77,7 +78,7 @@
     },
     "pages/admin/userInfo": {
       "js": [
-        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_48_0_node-6c0856.js"
+        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_49_0_node-6f578d.js"
       ],
       "css": [
         "http://localhost:8080/assets/pages/admin/userInfo.css"
@@ -85,7 +86,7 @@
     },
     "pages/user/profile": {
       "js": [
-        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_48_0_node-6c0856.js"
+        "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_49_0_node-6f578d.js"
       ],
       "css": [
         "http://localhost:8080/assets/pages/user/profile.css"

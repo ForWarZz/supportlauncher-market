@@ -1,10 +1,10 @@
 import { BaseCommand, args, flags } from '@adonisjs/core/build/standalone'
 
-export default class UserAdmin extends BaseCommand {
+export default class AdminSet extends BaseCommand {
   /**
    * Command name is used to run the command
    */
-  public static commandName = 'user:admin'
+  public static commandName = 'admin:set'
 
   /**
    * Command description is displayed in the "help" output

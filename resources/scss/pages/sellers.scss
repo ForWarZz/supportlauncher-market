@@ -34,22 +34,36 @@
     }
 
     section {
-      @apply block p-4 grid grid-flow-row grid-cols-2 gap-4;
+      @apply block p-4 grid grid-flow-row grid-cols-2 gap-10;
 
       @media screen and (max-width: calc( theme('screens.lg') - 1px)) {
         @apply grid-flow-row grid-cols-1;
       }
 
       article.seller-container {
-        @apply block p-4 rounded-xl bg-white shadow flex flex-row mb-8;
+        @apply block p-4 rounded-xl bg-white shadow-md flex flex-row mb-8;
 
         .avatar {
-          @apply block w-24 h-24 rounded-full mr-10;
+          @apply mr-10 block;
+
+          .avatar-container {
+            img {
+              @apply mx-auto rounded-full h-24 w-24 shadow-md transition-shadow duration-200 ease-in ring-2 ring-transparent;
+            }
+          }
+
+          &:hover {
+            @apply text-indigo-500;
+
+            .avatar-container img {
+              @apply ring-indigo-400;
+            }
+          }
         }
 
         .container {
           .username a {
-            @apply text-gray-800 transition-colors duration-150 ease-in uppercase text-xl;
+            @apply text-gray-800 transition-colors duration-200 ease-in uppercase text-xl;
 
             &:hover {
               @apply text-indigo-500;

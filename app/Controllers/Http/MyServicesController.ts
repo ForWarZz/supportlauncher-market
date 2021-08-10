@@ -20,8 +20,6 @@ export default class MyServicesController {
       }),
     })
 
-    console.log(data.content)
-
     let content
     if (data.content !== undefined && data.content.length > 0) {
       content = data.content
