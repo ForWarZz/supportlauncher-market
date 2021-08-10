@@ -49,7 +49,7 @@ export default class AuthController {
       return view.render('errors/auth', {
         title: 'Erreur',
         description:
-          "Une erreur est survenu lors de l'authentification. Contactez l'administateur si l'erreur persiste",
+          "Une erreur est survenu lors de l'authentification. Contactez l'administateur si l'erreur persiste (code: DISCORD_ERROR)",
       })
     }
 
@@ -61,7 +61,7 @@ export default class AuthController {
       return view.render('errors/auth', {
         title: 'Erreur',
         description:
-          "Une erreur est survenu lors de l'authentification. Contactez l'administateur si l'erreur persiste",
+          "Une erreur est survenu lors de l'authentification. Contactez l'administateur si l'erreur persiste (code: INVALID_USER)",
       })
     }
 
@@ -78,8 +78,6 @@ export default class AuthController {
       user.avatar = discordUser.avatarUrl || ''
       user.email = discordUser.email || ''
       await user.save()
-
-      console.log()
 
       // Auth the user and update all his informations from the Discord Account
       await auth.loginViaId(discordUser.id)

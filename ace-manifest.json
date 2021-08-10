@@ -1,12 +1,58 @@
 {
   "commands": {
-    "user:admin": {
+    "admin:delete": {
       "settings": {
         "loadApp": true,
         "stayAlive": false
       },
-      "commandPath": "./commands/UserAdmin",
-      "commandName": "user:admin",
+      "commandPath": "./commands/AdminDelete",
+      "commandName": "admin:delete",
+      "description": "Remove the admin role from a user",
+      "args": [
+        {
+          "type": "string",
+          "propertyName": "id",
+          "name": "id",
+          "required": true,
+          "description": "The user ID"
+        }
+      ],
+      "aliases": [],
+      "flags": [
+        {
+          "name": "super",
+          "propertyName": "super",
+          "type": "boolean",
+          "description": "Remove the \"superadmin\" role instead of \"admin\""
+        }
+      ]
+    },
+    "admin:list": {
+      "settings": {
+        "loadApp": true,
+        "stayAlive": false
+      },
+      "commandPath": "./commands/AdminList",
+      "commandName": "admin:list",
+      "description": "List all users having the admin role",
+      "args": [],
+      "aliases": [],
+      "flags": [
+        {
+          "name": "super",
+          "propertyName": "super",
+          "type": "boolean",
+          "description": "Ask only user with the \"superadmin\" role"
+        }
+      ]
+    },
+    "admin:set": {
+      "settings": {
+        "loadApp": true,
+        "stayAlive": false
+      },
+      "commandPath": "./commands/AdminSet",
+      "commandName": "admin:set",
       "description": "Add an admin role to a user",
       "args": [
         {

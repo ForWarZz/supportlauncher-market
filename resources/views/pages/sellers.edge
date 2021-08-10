@@ -33,7 +33,11 @@
     <section>
       @each(seller in sellers)
         <article class="seller-container">
-          <img src="{{ seller.avatar }}" alt="Avatar de {{ seller.username }}" class="avatar">
+          <a href="{{ route('base.sellerView', {id: seller.id}) }}" class="avatar">
+            <div class="avatar-container">
+              <img src="{{ seller.avatar }}" alt="Avatar de {{ seller.username }}">
+            </div>
+          </a>
 
           <div class="container">
             <h2 class="username">

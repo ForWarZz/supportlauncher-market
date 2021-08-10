@@ -41,7 +41,7 @@ $ node ace db:seed
 
 ### Notes pour SQLite
 
-Lorsque AdonisJS est configuré pour utiliser SQLite, il va essayer de charger le fichier `tmp/database.sqlite`. Vous devrez au préalable créer le dossier `tmp` à la racine du projet.
+Lorsque AdonisJS est configuré pour utiliser SQLite, il va essayer de charger le fichier `tmp/db.sqlite2`. Vous devrez au préalable créer le dossier `tmp` à la racine du projet avec la commande `mkdir tmp`.
 
 # Démarrer le site
 
@@ -51,7 +51,7 @@ Lorsque AdonisJS est configuré pour utiliser SQLite, il va essayer de charger l
 $ pnpm run dev # ou npm
 ```
 
-Le site sera ensuite disponible à l'adresse [http://localhost:3000](http://localhost:3000) si le port par défaut n'as pas été changé.
+Le site sera ensuite disponible à l'adresse [http://localhost:3333](http://localhost:3333) si le port par défaut n'as pas été changé.
 
 **En environnement de production**, le site doit d'abord être compilé.
 

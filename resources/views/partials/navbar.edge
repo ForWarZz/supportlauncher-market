@@ -8,11 +8,11 @@
     </a>
 
     <span class="menubar">
-      <a href="{{ route('base.sellers') }}" class="{{ request.matchesRoute('/sellers') ? 'active' : '' }}">Vendeurs</a>
+      <a href="{{ route('base.sellers') }}" class="{{ request.matchesRoute('base.sellers') ? 'active' : '' }}">Vendeurs</a>
       @loggedIn
         @if(!auth.user.banned)
           @can('AdminPolicy.accessPanel')
-            <a href="{{ route('admin.home') }}" class="{{ request.matchesRoute('/admin') ? 'active' : '' }}">
+            <a href="{{ route('admin.home') }}" class="{{ request.matchesRoute('admin.home') ? 'active' : '' }}">
               Administration
             </a>
           @endcan

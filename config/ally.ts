@@ -28,6 +28,7 @@ const allyConfig: AllyConfig = {
     clientId: Env.get('DISCORD_CLIENT_ID'),
     clientSecret: Env.get('DISCORD_CLIENT_SECRET'),
     callbackUrl: Env.get('DISCORD_REDIRECT_URI'),
+    scopes: ['identify', 'email'],
   },
 }
 

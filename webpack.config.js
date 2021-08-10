@@ -49,7 +49,7 @@ Encore.addAliases({
   '@': join(__dirname, './resources'),
 })
 
-Encore.addStyleEntry('base', './resources/scss/base.scss')
+Encore.addEntry('base', './resources/js/base.ts')
 Encore.addStyleEntry('fonts', './resources/scss/fonts.scss')
 Encore.addStyleEntry('pages/errors', './resources/scss/pages/errors.scss')
 Encore.addStyleEntry('pages/home', './resources/scss/pages/home.scss')
@@ -187,7 +187,7 @@ Encore.enableSassLoader()
 */
 Encore.enablePostCssLoader((options) => {
   options.postcssOptions = {
-    plugins: [require('postcss-import'), require('tailwindcss'), require('autoprefixer')],
+    plugins: [require('tailwindcss'), require('autoprefixer')],
   }
 })
 //Encore.configureCssLoader(() => {})
