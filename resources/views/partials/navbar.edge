@@ -24,7 +24,7 @@
             <i class="fas fa-caret-down"></i>
           </span>
           <ul class="dropdown">
-            @if(auth.isLoggedIn && !auth.user.banned)
+            @if(!auth.user.banned)
               <li>
                 <a href="{{ route('user.profile') }}">
                   Mon profil

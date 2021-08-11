@@ -1,3 +1,9 @@
+@import 'ckeditor-custom/build/ckeditor.css';
+
+#editor + .ck-editor {
+  @apply text-black;
+}
+
 .ck-content {
   & > blockquote,
   & > dl,

@@ -12,7 +12,6 @@ export default class MyServicesController {
       schema: schema.create({
         content: schema.string.optional(
           {
-            escape: true,
             trim: true,
           },
           [rules.maxLength(4000)]

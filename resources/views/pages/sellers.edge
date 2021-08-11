@@ -50,6 +50,10 @@
                 </div>
               @endif
             </h2>
+
+            <div>
+              {{ excerpt(nl2br(seller.sellerProfile.bio), 20) }}
+            </div>
           </div>
         </article>
       @else

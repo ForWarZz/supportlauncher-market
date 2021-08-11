@@ -1,5 +1,6 @@
 @import '../components/button.scss';
 @import '../partials/navbar.scss';
+@import '../components/editor.scss';
 
 #my-services {
   @apply flex flex-row h-full overflow-y-auto;

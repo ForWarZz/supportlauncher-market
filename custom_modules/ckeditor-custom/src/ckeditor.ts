@@ -3,6 +3,8 @@
  * For licensing, see https://ckeditor.com/legal/ckeditor-oss-license
  */
 
+import 'regenerator-runtime/runtime'
+
 // The editor creator to use.
 import ClassicEditorBase from '@ckeditor/ckeditor5-editor-classic/src/classiceditor'
 
@@ -50,12 +52,12 @@ import SpecialCharactersMathematical from '@ckeditor/ckeditor5-special-character
 import SpecialCharactersText from '@ckeditor/ckeditor5-special-characters/src/specialcharacterstext'
 import Strikethrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough'
 import Table from '@ckeditor/ckeditor5-table/src/table'
+// @ts-ignore
 import TableCaption from '@ckeditor/ckeditor5-table/src/tablecaption'
 import TableCellProperties from '@ckeditor/ckeditor5-table/src/tablecellproperties'
 import TableProperties from '@ckeditor/ckeditor5-table/src/tableproperties'
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar'
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation'
-import Title from '@ckeditor/ckeditor5-heading/src/title'
 import TodoList from '@ckeditor/ckeditor5-list/src/todolist'
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline'
 
@@ -112,7 +114,6 @@ Editor.builtinPlugins = [
   TableProperties,
   TableToolbar,
   TextTransformation,
-  Title,
   TodoList,
   Underline,
 ]
@@ -142,7 +143,6 @@ Editor.defaultConfig = {
       '|',
       'code',
       'codeBlock',
-      '-',
       'findAndReplace',
       '|',
       'fontBackgroundColor',
@@ -162,7 +162,6 @@ Editor.defaultConfig = {
     ],
     shouldNotGroupWhenFull: true,
   },
-  language: 'fr',
   image: {
     toolbar: [
       'imageTextAlternative',
