@@ -12,10 +12,23 @@ export default class User extends BaseModel {
   public id: string
 
   /**
-   * User username
+   * User username (private, at look the getter below)
    */
-  @column()
-  public username: string
+  @column({ columnName: 'username' })
+  private _username: string
+
+  /**
+   * User username
+   * Will return the username depend on if the user is a seller
+   * and if he has a custom name
+   */
+  public get username(): string {
+    if (this.sellerProfile && this.sellerProfile.customName) {
+      return this.sellerProfile.customName
+    } else {
+      return this._username
+    }
+  }
 
   /**
    * User email

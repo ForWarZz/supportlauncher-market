@@ -1,6 +1,9 @@
 import '@/scss/pages/my-services.scss'
 // @ts-ignore
 import Alpine from 'alpinejs'
+import editor from '../../components/editor'
+
+editor()
 
 document.addEventListener('alpine:init', () => {
   const tokenEl = document.querySelector('input[name="_csrf"]') as HTMLInputElement

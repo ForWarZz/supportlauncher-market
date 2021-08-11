@@ -11,6 +11,9 @@ export default class SellerProfile extends BaseModel {
   public userId: string
 
   @column()
+  public customName?: string
+
+  @column()
   public status: SellerStatus
 
   @column()

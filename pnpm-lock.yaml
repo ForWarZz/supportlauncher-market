@@ -16,6 +16,7 @@ specifiers:
   adonis-preset-ts: ^2.1.0
   alpinejs: ^3.2.3
   autoprefixer: ^10.3.1
+  ckeditor-custom: link:custom_modules/ckeditor-custom
   countup.js: ^2.0.8
   date-fns: ^2.23.0
   eslint: ^7.32.0
@@ -53,6 +54,7 @@ dependencies:
   '@adonisjs/shield': 7.0.5_e2cce02c31a63ad7b7a1b8a7cae35f05
   '@adonisjs/view': 6.0.8_@adonisjs+core@5.1.11
   alpinejs: 3.2.3
+  ckeditor-custom: link:custom_modules/ckeditor-custom
   countup.js: 2.0.8
   date-fns: 2.23.0
   luxon: 2.0.2

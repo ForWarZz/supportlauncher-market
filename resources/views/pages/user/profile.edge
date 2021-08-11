@@ -29,6 +29,35 @@
           @end
         </div>
       </section>
+
+      <section>
+        <h3 class="title">Personnaliser le nom d'utilisateur</h3>
+        <p>
+          Les vendeurs ont la possibilité de personnaliser leur nom d'utilisateur de manière à résoudre un problème
+          lié à certains caractères utilisé dans les pseudo Discord:
+        </p>
+        <form action="{{ route('seller.update-username') }}" method="POST" id="username-form">
+          {{ csrfField() }}
+          <label for="username" class="label">Nom d'utilisateur</label>
+          @!component('components/input', {
+            id: 'username',
+            value: auth.user.username,
+            type: 'username',
+            name: 'username',
+            placeholder: "Nom d'utilisateur",
+            errors: flashMessages.get('errors.username')
+          })
+          <div class="actions">
+            <button class="button" type="submit">
+              <i class="fas fa-save"></i>
+              Enregistrer
+            </button>
+            <a href="{{ route('seller.reset-username') }}" class="button reset-button">
+              Réinitialiser
+            </a>
+          </div>
+        </form>
+      </section>
     @endif
   </main>
 @endsection

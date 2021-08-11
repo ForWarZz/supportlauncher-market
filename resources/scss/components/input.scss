@@ -24,4 +24,8 @@ label.label {
   &.with-icon .input {
     @apply rounded-l-none;
   }
+
+  & + .errors {
+    @apply text-sm text-red-500 block;
+  }
 }
