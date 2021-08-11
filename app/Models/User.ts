@@ -30,6 +30,10 @@ export default class User extends BaseModel {
     }
   }
 
+  public set username(username: string) {
+    this._username = username
+  }
+
   /**
    * User email
    */
