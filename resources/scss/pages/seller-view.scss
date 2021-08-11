@@ -1,5 +1,6 @@
 @import '../components/button.scss';
 @import '../partials/navbar.scss';
+@import '../components/editor.scss';
 
 #seller-view {
   .container {
@@ -65,7 +66,7 @@
   }
 
   .biography {
-    @apply p-4;
+    @apply p-4 pt-0;
 
     @screen lg {
       @apply px-8;

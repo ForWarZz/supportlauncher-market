@@ -7,6 +7,9 @@ Route.group(() => {
   Route.group(() => {
     Route.post('/update-status', 'SellersController.updateStatus').as('update-status')
     Route.get('/unlink-stripe', 'SellersController.unlinkStripe').as('unlinkStripe')
+
+    Route.post('/update-username', 'SellersController.updateUsername').as('update-username')
+    Route.get('/reset-username', 'SellersController.resetUsername').as('reset-username')
   }).middleware(['permission:seller_canSell'])
 })
   .as('seller')

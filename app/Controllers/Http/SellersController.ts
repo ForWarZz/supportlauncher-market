@@ -2,7 +2,7 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Stripe from '@ioc:Adonis/Addons/Stripe'
 import Env from '@ioc:Adonis/Core/Env'
 import SellerProfile from 'App/Models/SellerProfile'
-import { schema } from '@ioc:Adonis/Core/Validator'
+import { schema, rules } from '@ioc:Adonis/Core/Validator'
 export default class SellersController {
   public async linkStripe({ auth, response }: HttpContextContract) {
     if (!(await auth.user!.hasRole('seller'))) {
@@ -91,5 +91,52 @@ export default class SellersController {
     auth.user!.sellerProfile.status = data.status
     await auth.user!.sellerProfile.save()
     return response.ok({})
+  }
+
+  public async updateUsername({ request, auth, response }: HttpContextContract) {
+    const data = await request.validate({
+      schema: schema.create({
+        username: schema.string(
+          {
+            escape: true,
+            trim: true,
+          },
+          [
+            rules.unique({
+              column: 'username',
+              table: 'users',
+              caseInsensitive: true,
+              whereNot: {
+                id: auth.user!.id,
+              },
+            }),
+            rules.unique({
+              column: 'custom_name',
+              table: 'seller_profiles',
+              caseInsensitive: true,
+              whereNot: {
+                user_id: auth.user!.id,
+              },
+            }),
+          ]
+        ),
+      }),
+    })
+
+    await auth.user!.load('sellerProfile')
+    auth.user!.sellerProfile.customName = data.username
+    await auth.user!.sellerProfile.save()
+    return response.redirect().back()
+  }
+
+  public async resetUsername({ response, auth }: HttpContextContract) {
+    await auth.user!.load('sellerProfile')
+
+    await SellerProfile.query().where('user_id', auth.user!.id).update({
+      customName: null,
+    })
+    await auth.user!.sellerProfile.save()
+
+    return response.redirect().back()
   }
 }

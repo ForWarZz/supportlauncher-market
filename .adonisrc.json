@@ -36,6 +36,11 @@
     {
       "pattern": "resources/views/**/*.edge",
       "reloadServer": false
+    },
+    {
+      "pattern": "./custom_modules/**",
+      "reloadServer": false,
+      "watch": false
     }
   ]
 }

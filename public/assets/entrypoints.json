@@ -25,6 +25,7 @@
         "http://localhost:8080/assets/pages/my-services.js"
       ],
       "css": [
+        "http://localhost:8080/assets/custom_modules_ckeditor-custom_build_ckeditor_css.css",
         "http://localhost:8080/assets/pages/my-services.css"
       ]
     },
@@ -65,6 +66,7 @@
         "http://localhost:8080/assets/vendors-node_modules_pnpm_webpack-dev-server_4_0_0-rc_0_webpack-cli_4_7_2_webpack_5_49_0_node-6f578d.js"
       ],
       "css": [
+        "http://localhost:8080/assets/custom_modules_ckeditor-custom_build_ckeditor_css.css",
         "http://localhost:8080/assets/pages/sellerView.css"
       ]
     },
