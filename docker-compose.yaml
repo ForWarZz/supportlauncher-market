@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  sl_market:
+    restart: always
+    build:
+      dockerfile: ./docker/Dockerfile
+      context: .
+    ports:
+      - 3333:3333
+      - 8080:8080
+    env_file:
+      - .env
+    networks:
+      - sl_market
+    volumes:
+      - .:/app
+
+  redis:
+    image: redis:alpine
+    restart: always
+    networks:
+      - sl_market
+
+  postgres:
+    image: postgres:alpine
+    restart: always
+    networks:
+      - sl_market
+    environment:
+      POSTGRES_PASSWORD: root
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - database:/var/lib/postgresql/data
+
+networks:
+  sl_market:
+    driver: bridge
+
+volumes:
+  database: {}

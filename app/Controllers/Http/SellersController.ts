@@ -3,6 +3,8 @@ import Stripe from '@ioc:Adonis/Addons/Stripe'
 import Env from '@ioc:Adonis/Core/Env'
 import SellerProfile from 'App/Models/SellerProfile'
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
+import Redis from '@ioc:Adonis/Addons/Redis'
+
 export default class SellersController {
   public async linkStripe({ auth, response }: HttpContextContract) {
     if (!(await auth.user!.hasRole('seller'))) {
@@ -11,21 +13,33 @@ export default class SellersController {
 
     await auth.user!.load('sellerProfile')
 
-    const account = await Stripe.accounts.create({
-      type: 'express',
-    })
+    const KEY = `stripe-${auth.user!.id}`
 
-    auth.user!.sellerProfile.stripeAccountId = account.id
-    await auth.user!.sellerProfile.save()
+    let accountId = await Redis.get(KEY)
+
+    if (!accountId) {
+      const account = await Stripe.accounts.create({
+        type: 'express',
+      })
+      accountId = account.id
+    }
+
+    await Redis.set(
+      KEY, // Key
+      accountId, // Value
+      'EX', // Expire in seconds
+      60 * 60, // 60 seconds * 60 minutes = 1 hours
+      'NX' // Only set if not already exists
+    )
 
     const accountLinks = await Stripe.accountLinks.create({
-      account: account.id,
+      account: accountId,
       refresh_url: Env.get('STRIPE_REFRESH_URL'),
       return_url: Env.get('STRIPE_RETURN_URL'),
       type: 'account_onboarding',
     })
 
-    await Stripe.accounts.retrieve(account.id)
+    await Stripe.accounts.retrieve(accountId)
 
     return response.redirect(accountLinks.url)
   }
@@ -37,11 +51,19 @@ export default class SellersController {
       return response.redirect().toRoute('base.home')
     }
 
-    const id = auth.user!.sellerProfile.stripeAccountId
+    const KEY = `stripe-${auth.user!.id}`
+
+    const id = await Redis.get(KEY)
 
     if (id) {
       try {
         const account = await Stripe.accounts.retrieve(id)
+
+        auth.user.sellerProfile.stripeAccountId = id
+        await auth.user!.sellerProfile.save()
+
+        await Redis.del(KEY)
+
         return response.redirect().toRoute('user.profile', {
           qs: {
             error: account.details_submitted ? '' : 'not_submitted',

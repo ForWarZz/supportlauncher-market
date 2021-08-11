@@ -26,7 +26,8 @@
     "@adonisjs/lucid-slugify",
     "@adonisjs/bouncer",
     "./providers/CustomTagProvider",
-    "./providers/StripeProvider"
+    "./providers/StripeProvider",
+    "@adonisjs/redis"
   ],
   "metaFiles": [
     {

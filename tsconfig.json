@@ -21,7 +21,8 @@
       "@adonisjs/session",
       "@adonisjs/shield",
       "@adonisjs/lucid-slugify",
-      "@adonisjs/bouncer"
+      "@adonisjs/bouncer",
+      "@adonisjs/redis"
     ]
   }
 }
