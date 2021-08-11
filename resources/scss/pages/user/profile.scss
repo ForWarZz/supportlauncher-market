@@ -1,5 +1,6 @@
 @import '../../partials/navbar.scss';
 @import '../../components/button.scss';
+@import '../../components/input.scss';
 
 #profile {
   @apply flex-1 p-8 overflow-y-auto;
@@ -25,6 +26,33 @@
 
     img {
       @apply inline-block;
+    }
+  }
+
+  #username-form {
+    @apply max-w-md mx-4 mt-2;
+
+    .label {
+      @apply text-blue-500;
+    }
+
+    .actions {
+      @apply flex flex-col gap-1 mt-2;
+
+      @screen md {
+        @apply flex-row gap-4;
+      }
+
+      .button {
+        @apply block;
+      }
+      .reset-button {
+        @apply bg-white text-blue-500;
+
+        &:hover {
+          @apply bg-gray-100 text-blue-400;
+        }
+      }
     }
   }
 }
