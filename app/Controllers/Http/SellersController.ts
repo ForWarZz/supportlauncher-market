@@ -59,7 +59,7 @@ export default class SellersController {
       try {
         const account = await Stripe.accounts.retrieve(id)
 
-        auth.user.sellerProfile.stripeAccountId = id
+        auth.user!.sellerProfile.stripeAccountId = id
         await auth.user!.sellerProfile.save()
 
         await Redis.del(KEY)

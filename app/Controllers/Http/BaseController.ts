@@ -19,7 +19,7 @@ export default class BasesController {
       })
 
     if (search) {
-      sellersQuery = sellersQuery.where('username', 'like', `%${search}%`)
+      sellersQuery = sellersQuery.where('username', 'ilike', `%${search}%`)
     }
 
     const sellers = await sellersQuery.paginate(page, 20)
