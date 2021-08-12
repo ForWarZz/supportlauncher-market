@@ -48,4 +48,9 @@ export default Env.rules({
   REDIS_HOST: Env.schema.string({ format: 'host' }),
   REDIS_PORT: Env.schema.number(),
   REDIS_PASSWORD: Env.schema.string.optional(),
+
+  // Links
+  DISCORD_SUPPORT_LINK: Env.schema.string(),
+  DISCORD_LINK: Env.schema.string(),
+  GITHUB_LINK: Env.schema.string(),
 })

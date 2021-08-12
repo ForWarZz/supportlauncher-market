@@ -1,0 +1,53 @@
+#footer {
+  @apply bg-gray-300 border-t border-blue-400;
+
+  .footer-content {
+    @apply mx-auto px-4 py-2;
+
+    ul {
+      @apply flex flex-col justify-center align-middle;
+
+      @screen md {
+        @apply flex-row;
+      }
+    }
+
+    li a {
+      @apply w-auto mx-4 block max-w-md text-blue-500;
+
+      i {
+        @apply w-6 h-4 text-center;
+      }
+
+      &:hover {
+        @apply text-blue-400;
+      }
+    }
+  }
+
+  .footer-bottom {
+    @apply h-10 flex align-middle px-4 text-gray-600 uppercase;
+
+    .left {
+      @apply flex-1 justify-start;
+    }
+    .center {
+      @apply flex-1 justify-center text-center;
+    }
+    .right {
+      @apply flex-1 justify-end text-right;
+    }
+
+    span {
+      @apply my-auto;
+    }
+  }
+}
+
+.dark #footer {
+  @apply bg-gray-700;
+
+  .footer-bottom {
+    @apply text-gray-400;
+  }
+}

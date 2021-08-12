@@ -1,8 +1,15 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/utilities';
 
+@import './partials/navbar.scss';
+@import './partials/footer.scss';
+
 body {
   @apply h-screen bg-gray-100 flex flex-col;
+}
+
+.app-body {
+  @apply flex-1;
 }
 
 [x-cloak] {

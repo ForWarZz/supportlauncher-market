@@ -1,0 +1,29 @@
+<footer id="footer">
+  <section class="footer-content">
+    <ul>
+      <li>
+        <a href="{{ env('DISCORD_LINK') }}" class="discord-link">
+          <i class="fab fa-discord"></i>
+          Discord du projet
+        </a>
+      </li>
+      <li>
+        <a href="{{ env('DISCORD_SUPPORT_LINK') }}" class="discord-link">
+          <i class="fab fa-discord"></i>
+          Discord du support
+        </a>
+      </li>
+      <li>
+        <a href="{{ env('GITHUB_LINK') }}" class="github-link">
+          <i class="fab fa-github"></i>
+          Github
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section class="footer-bottom">
+    <span class="left">Support-Launcher Market ─ v{{ appVersion() }}</span>
+    <span class="center">Version de développement</span>
+    <span class="right"> ©{{ new Date().getFullYear() }}</span>
+  </section>
+</footer>

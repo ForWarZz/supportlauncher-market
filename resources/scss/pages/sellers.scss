@@ -1,5 +1,4 @@
 @import '../components/button.scss';
-@import '../partials/navbar.scss';
 @import '../components/pagination.scss';
 @import '../components/input.scss';
 
@@ -27,7 +26,11 @@
   }
 
   .content {
-    @apply flex-1 p-8 overflow-y-auto;
+    @apply flex-1 flex flex-col;
+  }
+
+  .app-body {
+    @apply p-8 overflow-y-auto;
 
     .title {
       @apply text-gray-800 uppercase text-xl font-semibold px-2;
