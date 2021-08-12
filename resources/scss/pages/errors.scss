@@ -28,3 +28,7 @@
     }
   }
 }
+
+.dark #errors .box {
+  @apply bg-gray-800 text-white;
+}

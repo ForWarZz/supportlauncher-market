@@ -119,3 +119,29 @@
     @apply w-auto block;
   }
 }
+
+.dark #admin-userinfo {
+  .title .username {
+    @apply text-white;
+  }
+
+  section {
+    @apply bg-gray-800;
+
+    .table-container table {
+      thead {
+        @apply border-gray-600;
+      }
+
+      tr:not(:last-child) {
+        @apply border-gray-700;
+      }
+    }
+
+    .delete-role {
+      &.disabled {
+        @apply bg-red-800;
+      }
+    }
+  }
+}

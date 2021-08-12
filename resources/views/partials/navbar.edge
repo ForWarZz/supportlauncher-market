@@ -54,6 +54,14 @@
           Authentification
         </a>
       @endloggedIn
+      @set('darkMode', auth.isLoggedIn ? auth.user.darkMode : session.get('darkMode', false))
+      <a href="{{ route('base.update-theme') + (darkMode ? '?mode=light' : '?mode=dark') }}">
+        @if (darkMode)
+          <i class="fas fa-moon"></i>
+        @else
+          <i class="fas fa-sun"></i>
+        @end
+      </a>
     </span>
   </div>
 </nav>

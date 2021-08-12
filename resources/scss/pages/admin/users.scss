@@ -3,7 +3,6 @@
 @import '../../components/button.scss';
 @import '../../components/pagination.scss';
 @import '../../components/pages/admin/user_item.scss';
-@import '../../components/modal.scss';
 
 #admin-users {
   header {
@@ -61,30 +60,18 @@
       @apply bg-white;
     }
   }
+}
 
-  .delete-modal {
-    .title .username {
-      @apply text-indigo-500;
+.dark #admin-users {
+  .table table {
+    @apply bg-gray-800;
+
+    th {
+      @apply bg-gray-800 border-gray-700 text-gray-200;
     }
+  }
 
-    .delete-btn {
-      @apply bg-red-500;
-
-      &:hover {
-        @apply bg-red-400;
-      }
-
-      &:disabled {
-        @apply bg-red-300;
-      }
-    }
-
-    .cancel-btn {
-      @apply bg-white text-indigo-500;
-
-      &:hover {
-        @apply bg-gray-200 text-indigo-400;
-      }
-    }
+  .pagination-container {
+    @apply bg-gray-800;
   }
 }

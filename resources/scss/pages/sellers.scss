@@ -53,8 +53,6 @@
           }
 
           &:hover {
-            @apply text-indigo-500;
-
             .avatar-container img {
               @apply ring-indigo-400;
             }
@@ -91,6 +89,32 @@
               @apply opacity-100;
             }
           }
+        }
+      }
+    }
+  }
+}
+
+.dark #sellers {
+  .side-menu {
+    @apply bg-gray-800;
+
+    .title {
+      @apply text-gray-300;
+    }
+  }
+
+  .content {
+    .title {
+      @apply text-gray-200;
+    }
+
+    article.seller-container {
+      @apply bg-gray-700;
+
+      .container {
+        .username a {
+          @apply text-gray-200;
         }
       }
     }

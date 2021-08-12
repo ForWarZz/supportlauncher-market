@@ -5,14 +5,18 @@
         "http://localhost:8080/assets/vendors-node_modules_webpack-dev-server_client_index_js_protocol_ws_3A_hostname_0_0_0_0_port_-f18552.js",
         "http://localhost:8080/assets/base.js"
       ],
-      "css": ["http://localhost:8080/assets/base.css"]
+      "css": [
+        "http://localhost:8080/assets/base.css"
+      ]
     },
     "pages/admin/home": {
       "js": [
         "http://localhost:8080/assets/vendors-node_modules_webpack-dev-server_client_index_js_protocol_ws_3A_hostname_0_0_0_0_port_-f18552.js",
         "http://localhost:8080/assets/pages/admin/home.js"
       ],
-      "css": ["http://localhost:8080/assets/pages/admin/home.css"]
+      "css": [
+        "http://localhost:8080/assets/pages/admin/home.css"
+      ]
     },
     "pages/my-services": {
       "js": [
@@ -29,25 +33,33 @@
       "js": [
         "http://localhost:8080/assets/vendors-node_modules_webpack-dev-server_client_index_js_protocol_ws_3A_hostname_0_0_0_0_port_-f18552.js"
       ],
-      "css": ["http://localhost:8080/assets/fonts.css"]
+      "css": [
+        "http://localhost:8080/assets/fonts.css"
+      ]
     },
     "pages/errors": {
       "js": [
         "http://localhost:8080/assets/vendors-node_modules_webpack-dev-server_client_index_js_protocol_ws_3A_hostname_0_0_0_0_port_-f18552.js"
       ],
-      "css": ["http://localhost:8080/assets/pages/errors.css"]
+      "css": [
+        "http://localhost:8080/assets/pages/errors.css"
+      ]
     },
     "pages/home": {
       "js": [
         "http://localhost:8080/assets/vendors-node_modules_webpack-dev-server_client_index_js_protocol_ws_3A_hostname_0_0_0_0_port_-f18552.js"
       ],
-      "css": ["http://localhost:8080/assets/pages/home.css"]
+      "css": [
+        "http://localhost:8080/assets/pages/home.css"
+      ]
     },
     "pages/sellers": {
       "js": [
         "http://localhost:8080/assets/vendors-node_modules_webpack-dev-server_client_index_js_protocol_ws_3A_hostname_0_0_0_0_port_-f18552.js"
       ],
-      "css": ["http://localhost:8080/assets/pages/sellers.css"]
+      "css": [
+        "http://localhost:8080/assets/pages/sellers.css"
+      ]
     },
     "pages/sellerView": {
       "js": [
@@ -62,19 +74,25 @@
       "js": [
         "http://localhost:8080/assets/vendors-node_modules_webpack-dev-server_client_index_js_protocol_ws_3A_hostname_0_0_0_0_port_-f18552.js"
       ],
-      "css": ["http://localhost:8080/assets/pages/admin/users.css"]
+      "css": [
+        "http://localhost:8080/assets/pages/admin/users.css"
+      ]
     },
     "pages/admin/userInfo": {
       "js": [
         "http://localhost:8080/assets/vendors-node_modules_webpack-dev-server_client_index_js_protocol_ws_3A_hostname_0_0_0_0_port_-f18552.js"
       ],
-      "css": ["http://localhost:8080/assets/pages/admin/userInfo.css"]
+      "css": [
+        "http://localhost:8080/assets/pages/admin/userInfo.css"
+      ]
     },
     "pages/user/profile": {
       "js": [
         "http://localhost:8080/assets/vendors-node_modules_webpack-dev-server_client_index_js_protocol_ws_3A_hostname_0_0_0_0_port_-f18552.js"
       ],
-      "css": ["http://localhost:8080/assets/pages/user/profile.css"]
+      "css": [
+        "http://localhost:8080/assets/pages/user/profile.css"
+      ]
     }
   }
 }

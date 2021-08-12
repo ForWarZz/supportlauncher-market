@@ -29,3 +29,27 @@ label.label {
     @apply text-sm text-red-500 block;
   }
 }
+
+.dark {
+  label.label {
+    @apply text-gray-300;
+  }
+
+  .input-field {
+    .icon {
+      @apply bg-gray-900 border-gray-700;
+    }
+
+    .input {
+      @apply border-gray-700 bg-gray-900 text-gray-300 placeholder-gray-600;
+
+      &:focus {
+        @apply ring-blue-600;
+      }
+
+      &:disabled {
+        @apply bg-gray-700;
+      }
+    }
+  }
+}

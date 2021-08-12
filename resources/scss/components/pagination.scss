@@ -24,3 +24,15 @@
     }
   }
 }
+
+.dark .pagination-container .pagination a {
+  @apply text-gray-400 bg-gray-800;
+
+  &:hover {
+    @apply bg-gray-900 text-indigo-500;
+  }
+
+  &.active {
+    @apply text-white;
+  }
+}

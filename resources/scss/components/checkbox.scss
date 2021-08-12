@@ -33,3 +33,15 @@
     @apply text-sm text-gray-700 select-none;
   }
 }
+
+.dark .checkbox-field input.checkbox {
+  @apply bg-gray-900 border-gray-700;
+
+  &:disabled {
+    @apply bg-gray-700;
+  }
+
+  & + label {
+    @apply text-gray-300;
+  }
+}

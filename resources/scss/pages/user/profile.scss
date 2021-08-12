@@ -56,3 +56,17 @@
     }
   }
 }
+
+.dark #profile {
+  section {
+    @apply text-gray-200;
+  }
+
+  #username-form .reset-button {
+    @apply bg-gray-800;
+
+    &:hover {
+      @apply bg-gray-700;
+    }
+  }
+}

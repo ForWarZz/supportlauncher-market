@@ -6,6 +6,8 @@ Route.group(() => {
   Route.get('/vendeurs', 'BaseController.sellers').as('sellers')
   Route.get('/vendeurs/:id', 'BaseController.sellerView').as('sellerView')
 
+  Route.get('/theme', 'BaseController.updateTheme').as('update-theme')
+
   if (!Application.inProduction) {
     Route.get('/errors/:any?', async ({ view, params }) => {
       switch (params.any) {

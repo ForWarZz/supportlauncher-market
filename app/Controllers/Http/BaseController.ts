@@ -38,4 +38,19 @@ export default class BasesController {
       seller,
     })
   }
+
+  public async updateTheme({ request, auth, session, response, params }: HttpContextContract) {
+    const mode = request.input('mode')
+
+    if (mode === 'dark' || mode === 'light') {
+      if (auth.isLoggedIn) {
+        auth.user!.darkMode = mode === 'dark'
+        await auth.user!.save()
+      } else {
+        session.put('darkMode', mode === 'dark')
+      }
+    }
+
+    return response.redirect().back()
+  }
 }

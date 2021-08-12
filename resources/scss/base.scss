@@ -8,3 +8,7 @@ body {
 [x-cloak] {
   @apply hidden #{!important};
 }
+
+.dark {
+  @apply bg-gray-900 text-white;
+}

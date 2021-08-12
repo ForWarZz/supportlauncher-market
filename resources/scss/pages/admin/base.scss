@@ -32,3 +32,22 @@
     @apply flex-1 p-8 overflow-y-auto;
   }
 }
+
+.dark #admin {
+  .side-menu {
+    @apply bg-gray-800;
+
+    .title {
+      @apply text-gray-300;
+    }
+
+    li a {
+      @apply text-gray-400;
+
+      &:hover,
+      &.active {
+        @apply text-blue-500 bg-gray-700;
+      }
+    }
+  }
+}

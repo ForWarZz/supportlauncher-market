@@ -75,7 +75,7 @@
 
         &:hover,
         &.active {
-          @apply text-blue-500 bg-gray-300  shadow-sm;
+          @apply text-blue-500 bg-gray-300 shadow-sm;
         }
       }
     }
@@ -117,6 +117,49 @@
         #editor {
           @apply w-full text-black;
         }
+      }
+    }
+  }
+}
+
+.dark #my-services {
+  .side-menu {
+    @apply bg-gray-800;
+
+    .status-container {
+      button p {
+        @apply text-gray-300;
+      }
+
+      &.active {
+        @apply bg-gray-700;
+      }
+    }
+
+    .title {
+      @apply text-gray-300;
+    }
+
+    li a {
+      @apply text-gray-400;
+
+      &:hover,
+      &.active {
+        @apply bg-gray-700 text-blue-500;
+      }
+    }
+  }
+
+  .content {
+    .title {
+      @apply text-gray-200;
+    }
+
+    .seller-description .actions .button {
+      @apply bg-gray-900;
+
+      &:hover {
+        @apply bg-gray-800;
       }
     }
   }

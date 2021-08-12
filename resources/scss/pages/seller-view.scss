@@ -73,3 +73,13 @@
     }
   }
 }
+
+.dark #seller-view {
+  .title .username {
+    @apply text-white;
+  }
+
+  .status .text {
+    @apply text-gray-200;
+  }
+}

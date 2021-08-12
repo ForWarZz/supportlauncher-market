@@ -97,3 +97,16 @@
     }
   }
 }
+
+.dark #navbar {
+  .nav-container .menubar {
+    .discord-btn {
+      @apply w-auto #{!important};
+      @apply ml-3 w-auto uppercase py-2 bg-gray-900 text-discord;
+
+      &:hover {
+        @apply bg-gray-800;
+      }
+    }
+  }
+}
