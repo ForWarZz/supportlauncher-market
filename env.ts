@@ -23,12 +23,14 @@ export default Env.rules({
   DB_CONNECTION: Env.schema.string(),
   CACHE_VIEWS: Env.schema.boolean(),
 
+  // Database configuration
   PG_HOST: Env.schema.string({ format: 'host' }),
   PG_PORT: Env.schema.number(),
   PG_USER: Env.schema.string(),
   PG_PASSWORD: Env.schema.string.optional(),
   PG_DB_NAME: Env.schema.string(),
 
+  // Discord configuration (for OAuth2)
   DISCORD_CLIENT_ID: Env.schema.string(),
   DISCORD_CLIENT_SECRET: Env.schema.string(),
   DISCORD_REDIRECT_URI: Env.schema.string(),
@@ -40,4 +42,15 @@ export default Env.rules({
   STRIPE_API_VERSION: Env.schema.string(),
   STRIPE_REFRESH_URL: Env.schema.string(),
   STRIPE_RETURN_URL: Env.schema.string(),
+
+  // Redis configuration
+  REDIS_CONNECTION: Env.schema.enum(['local'] as const),
+  REDIS_HOST: Env.schema.string({ format: 'host' }),
+  REDIS_PORT: Env.schema.number(),
+  REDIS_PASSWORD: Env.schema.string.optional(),
+
+  // Links
+  DISCORD_SUPPORT_LINK: Env.schema.string(),
+  DISCORD_LINK: Env.schema.string(),
+  GITHUB_LINK: Env.schema.string(),
 })

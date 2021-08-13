@@ -2,17 +2,17 @@
   @apply bg-gradient-to-b from-blue-600 to-blue-500 text-white sticky z-10;
 
   .nav-container {
-    @apply flex flex-col p-4;
+    @apply flex flex-col py-4 px-2;
 
     @screen md {
-      @apply flex-row;
+      @apply flex-row p-4;
     }
 
     .logo-link {
-      @apply flex flex-row items-center justify-center mb-8;
+      @apply flex flex-row items-center justify-center;
 
       @screen md {
-        @apply justify-start mb-0;
+        @apply justify-start;
       }
 
       .logo-container {
@@ -25,15 +25,27 @@
     }
 
     .menubar {
-      @apply flex-1 flex flex-col justify-end items-center;
+      @apply flex-1 justify-end items-center grid grid-cols-2 grid-flow-row gap-1;
 
       @screen md {
-        @apply flex-row;
+        @apply flex flex-row;
+
+        a:not(.button) {
+          @apply p-2;
+        }
+      }
+
+      @media screen and (max-width: calc(theme('screens.md') - 1px)) {
+        @apply text-center;
       }
 
       a,
-      button {
-        @apply ml-3 py-1 uppercase transition-colors duration-75 rounded-lg p-2;
+      .button {
+        @apply uppercase transition-colors duration-75 rounded-lg;
+
+        @screen md {
+          @apply ml-3;
+        }
 
         &:hover,
         &.active {
@@ -42,8 +54,11 @@
       }
 
       .discord-btn {
-        @apply w-auto #{!important};
-        @apply ml-3 w-auto uppercase py-2 bg-white text-discord;
+        @apply w-auto uppercase bg-white text-discord;
+
+        @media screen and (max-width: calc(theme('screens.md') - 1px)) {
+          @apply p-0;
+        }
 
         &:hover {
           @apply bg-gray-200;
@@ -91,9 +106,18 @@
         }
       }
 
-      &:hover .dropdown {
+      &:hover .dropdown,
+      &.active .dropdown {
         @apply block;
       }
     }
+  }
+}
+
+.dark #navbar .nav-container .discord-btn {
+  @apply bg-gray-900 text-discord;
+
+  &:hover {
+    @apply bg-gray-800;
   }
 }

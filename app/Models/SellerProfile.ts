@@ -20,7 +20,7 @@ export default class SellerProfile extends BaseModel {
   public bio: string
 
   @column()
-  public stripeAccountId: string
+  public stripeAccountId?: string
 
   @hasOne(() => User)
   public user: HasOne<typeof User>

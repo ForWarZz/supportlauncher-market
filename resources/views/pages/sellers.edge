@@ -28,44 +28,46 @@
     </form>
   </aside>
   <div class="content">
-    <h1 class="title">Liste des vendeurs</h1>
-
-    <section>
-      @each(seller in sellers)
-        <article class="seller-container">
-          <a href="{{ route('base.sellerView', {id: seller.id}) }}" class="avatar">
-            <div class="avatar-container">
-              <img src="{{ seller.avatar }}" alt="Avatar de {{ seller.username }}">
-            </div>
-          </a>
-
-          <div class="container">
-            <h2 class="username">
-              <a href="{{ route('base.sellerView', {id: seller.id}) }}">{{ seller.username }}</a>
-              @if (seller.sellerProfile.certified)
-                <div class="certified">
-                  <i class="fa fa-certificate badge-bg"></i>
-                  <i class="fa fa-check badge-fg"></i>
-                  <span class="label">Certifié</span>
+    <div class="app-body">
+      <div>
+        <h1 class="title">Liste des vendeurs</h1>
+    
+        <section>
+          @each(seller in sellers)
+            <article class="seller-container">
+              <a href="{{ route('base.sellerView', {id: seller.id}) }}" class="avatar">
+                <div class="avatar-container">
+                  <img src="{{ seller.avatar }}" alt="Avatar de {{ seller.username }}">
                 </div>
-              @endif
-            </h2>
-
-            <div>
-              {{ excerpt(nl2br(seller.sellerProfile.bio), 20) }}
-            </div>
-          </div>
-        </article>
-      @else
-        <p>Il n'y a aucun vendeur pour le moment</p>
-      @endeach
-    </section>
-
-    <div>
-      @!component('components/pagination', {
-        collection: sellers
-      })
+              </a>
+    
+              <div class="container">
+                <h2 class="username">
+                  <a href="{{ route('base.sellerView', {id: seller.id}) }}">{{ seller.username }}</a>
+                  @if (seller.sellerProfile.certified)
+                    <div class="certified">
+                      <i class="fa fa-certificate badge-bg"></i>
+                      <i class="fa fa-check badge-fg"></i>
+                      <span class="label">Certifié</span>
+                    </div>
+                  @endif
+                </h2>
+              </div>
+            </article>
+          @else
+            <p>Il n'y a aucun vendeur pour le moment</p>
+          @endeach
+        </section>
+    
+        <div>
+          @!component('components/pagination', {
+            collection: sellers
+          })
+        </div>
+      </div>
+  
     </div>
+    @include('partials/footer')
   </div>
 </main>
 @endsection

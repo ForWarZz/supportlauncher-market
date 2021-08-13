@@ -4,7 +4,7 @@ module.exports = {
     preserveHtmlElements: false,
     content: ['./resources/**/*.{edge,ts,scss}'],
   },
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       colors: {

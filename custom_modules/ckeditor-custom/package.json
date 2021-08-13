@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "./build/ckeditor.js",
+  "typings": "./build/ckeditor.d.ts",
   "files": [
     "build"
   ],

@@ -63,7 +63,7 @@
 
       <form id="new-role-form" method="POST" action="{{ route('admin.addRole', { id: user.id }) }}">
         {{ csrfField() }}
-        <div>
+        <div class="select-container">
           <label for="new-role" class="label">Ajouter un rôle</label>
           <div class="select-field with-icon">
             <div class="icon">

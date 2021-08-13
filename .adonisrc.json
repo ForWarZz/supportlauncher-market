@@ -4,7 +4,8 @@
     "./commands",
     "@adonisjs/core/build/commands",
     "@adonisjs/lucid/build/commands",
-    "@adonisjs/bouncer/build/commands"
+    "@adonisjs/bouncer/build/commands",
+    "@adonisjs/repl/build/commands"
   ],
   "exceptionHandlerNamespace": "App/Exceptions/Handler",
   "aliases": {
@@ -13,7 +14,11 @@
     "Database": "database",
     "Contracts": "contracts"
   },
-  "preloads": ["./start/routes", "./start/kernel", "./start/bouncer"],
+  "preloads": [
+    "./start/routes",
+    "./start/kernel",
+    "./start/bouncer"
+  ],
   "providers": [
     "./providers/AppProvider",
     "@adonisjs/core",
@@ -26,7 +31,8 @@
     "@adonisjs/lucid-slugify",
     "@adonisjs/bouncer",
     "./providers/CustomTagProvider",
-    "./providers/StripeProvider"
+    "./providers/StripeProvider",
+    "@adonisjs/redis"
   ],
   "metaFiles": [
     {
@@ -42,5 +48,8 @@
       "reloadServer": false,
       "watch": false
     }
+  ],
+  "aceProviders": [
+    "@adonisjs/repl"
   ]
 }

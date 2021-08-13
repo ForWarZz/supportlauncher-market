@@ -19,3 +19,11 @@ a.button {
     @apply bg-blue-300 cursor-default pointer-events-none select-none;
   }
 }
+
+.dark button.button,
+.dark a.button {
+  &:disabled,
+  &.disabled {
+    @apply bg-blue-800;
+  }
+}

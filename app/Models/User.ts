@@ -65,6 +65,12 @@ export default class User extends BaseModel {
   public banned: boolean
 
   /**
+   * True if the user enabled dark mode
+   */
+  @column()
+  public darkMode: boolean
+
+  /**
    * Datetime of the last account update
    *
    * _Warning_:

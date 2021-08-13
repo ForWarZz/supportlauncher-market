@@ -11,7 +11,8 @@
     @!section('styles')
     @!section('scripts-head')
   </head>
-  <body>
+  @set('darkMode', auth.isLoggedIn ? auth.user.darkMode : session.get('darkMode', false))
+  <body {{ darkMode ? 'class=dark' : '' }}>
     @include('partials/navbar')
 
     <main id="admin">
@@ -35,9 +36,13 @@
         </ul>
       </aside>
       <div class="content">
-        @!section('body')
+        <div class="app-body">
+          @!section('body')
+        </div>
+        @include('partials/footer')
       </div>
     </main>
+
 
     @entryPointScripts('base')
     @!section('scripts')

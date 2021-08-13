@@ -34,6 +34,8 @@ export default class CustomTagProvider {
   public async boot() {
     // All bindings are ready, feel free to use them
     const View = this.app.container.use('Adonis/Core/View')
+    const Env = this.app.container.use('Adonis/Core/Env')
+    const Application = this.app.container.use('Adonis/Core/Application')
     const { LoggedInTag } = await import('App/Tags/LoggedIn')
     const { GuestTag } = await import('App/Tags/Guest')
 
@@ -50,6 +52,14 @@ export default class CustomTagProvider {
         addSuffix: true,
         locale: fr,
       })
+    })
+
+    View.global('env', (key: string) => {
+      return Env.get(key)
+    })
+
+    View.global('appVersion', () => {
+      return Application.version
     })
   }
 

@@ -30,8 +30,8 @@ export default class AdminsController {
 
       if (search) {
         usersQuery = usersQuery
-          .where('username', 'like', `%${search}%`)
-          .orWhere('email', 'like', `%${search}%`)
+          .where('username', 'ilike', `%${search}%`)
+          .orWhere('email', 'ilike', `%${search}%`)
       }
       const users = await usersQuery.paginate(page, 20)
 
