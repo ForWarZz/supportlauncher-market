@@ -1,6 +1,6 @@
 {
   "name": "supportlauncher-market",
-  "version": "0.1.3",
+  "version": "0.1.6",
   "private": true,
   "scripts": {
     "build": "node ace build --production",
@@ -54,6 +54,6 @@
     "reflect-metadata": "^0.1.13",
     "source-map-support": "^0.5.19",
     "sqlite3": "^5.0.2",
-    "stripe": "^8.168.0"
+    "stripe": "^8.169.0"
   }
 }
