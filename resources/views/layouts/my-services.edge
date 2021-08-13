@@ -70,11 +70,10 @@
     <div class="content">
       <div class="app-body">
         @!section('body')
+        @include('partials/footer')
       </div>
-      @include('partials/footer')
     </div>
   </main>
-
 
   @entryPointScripts('base')
   @entryPointScripts('pages/my-services')

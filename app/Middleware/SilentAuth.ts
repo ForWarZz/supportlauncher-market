@@ -19,8 +19,11 @@ export default class SilentAuthMiddleware {
      * set to the instance of the currently logged in user.
      */
     await auth.check()
-    if (auth.isLoggedIn && auth.user!.banned && route?.name !== 'auth.logout') {
-      return response.ok(await view.render('errors/banned'))
+    if (auth.isLoggedIn) {
+      await auth.user!.load('sellerProfile')
+      if (auth.user!.banned && route?.name !== 'auth.logout') {
+        return response.ok(await view.render('errors/banned'))
+      }
     }
     return await next()
   }
