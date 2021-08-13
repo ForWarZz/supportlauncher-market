@@ -6,10 +6,10 @@
 
 #admin-users {
   header {
-    @apply flex flex-row mb-1 justify-between w-full;
+    @apply flex flex-col mb-1 justify-between w-full;
 
     @screen sm {
-      @apply mb-0;
+      @apply mb-0 flex-row;
     }
 
     .title {
@@ -17,7 +17,11 @@
     }
 
     .search-button {
-      @apply w-36 bg-indigo-500;
+      @apply w-full bg-indigo-500;
+
+      @screen md {
+        @apply w-36;
+      }
 
       &:hover {
         @apply bg-indigo-400;
@@ -28,17 +32,17 @@
       @apply items-end;
 
       form {
-        @apply flex w-full space-x-3;
+        @apply flex w-full space-y-3 flex-col;
+
+        @screen md {
+          @apply flex-row space-x-3 space-y-0;
+        }
       }
     }
   }
 
   .table-container {
-    @apply -mx-4 px-4 py-4 overflow-x-auto;
-
-    @screen sm {
-      @apply -mx-8 px-8;
-    }
+    @apply py-4 overflow-x-auto;
 
     .table {
       @apply inline-block min-w-full shadow rounded-lg overflow-hidden;

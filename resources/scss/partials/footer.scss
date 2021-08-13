@@ -2,31 +2,38 @@
   @apply bg-gray-300 border-t border-blue-400;
 
   .footer-content {
-    @apply mx-auto px-4 py-2;
+    @apply px-4 py-2;
 
     ul {
-      @apply flex flex-col justify-center align-middle;
+      @apply flex flex-col justify-center align-middle w-full;
 
       @screen md {
-        @apply flex-row;
+        @apply flex-row text-left max-w-2xl mx-auto;
       }
     }
 
-    li a {
-      @apply w-auto mx-4 block max-w-md text-blue-500;
+    li {
+      @apply flex-1 text-center;
+      a {
+        @apply w-auto mx-4 block text-blue-500;
 
-      i {
-        @apply w-6 h-4 text-center;
-      }
+        i {
+          @apply w-6 h-4 text-center;
+        }
 
-      &:hover {
-        @apply text-blue-400;
+        &:hover {
+          @apply text-blue-400;
+        }
       }
     }
   }
 
   .footer-bottom {
-    @apply h-10 flex align-middle px-4 text-gray-600 uppercase;
+    @apply flex align-middle px-4 py-2 text-gray-600 uppercase flex-col text-center;
+
+    @screen lg {
+      @apply flex-row text-left;
+    }
 
     .left {
       @apply flex-1 justify-start;
@@ -40,6 +47,10 @@
 
     span {
       @apply my-auto;
+
+      @media screen and (max-width: calc(theme('screens.md') - 1px)) {
+        @apply justify-center text-center #{!important};
+      }
     }
   }
 }

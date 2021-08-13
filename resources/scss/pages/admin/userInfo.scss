@@ -42,19 +42,27 @@
   }
 
   section {
-    @apply bg-white shadow-sm rounded-lg p-4 m-4;
+    @apply bg-white shadow-sm rounded-lg py-4 px-2 my-4;
+
+    @screen md {
+      @apply mx-4 px-4;
+    }
 
     .title {
       @apply text-purple-500 font-semibold px-2 mb-2 text-xl;
     }
     .table-container {
-      @apply p-4;
+      @apply py-4;
+
+      @screen md {
+        @apply px-4;
+      }
 
       table {
         @apply table-auto text-left w-full;
 
         th {
-          max-width: theme('width.16');
+          max-width: theme('width.24');
         }
 
         th,
@@ -86,16 +94,22 @@
   }
 
   #new-role-form {
-    @apply p-4 flex flex-col items-center;
+    @apply py-4 flex flex-col items-center;
 
     @screen md {
-      @apply flex-row gap-3 h-20 mt-4;
+      @apply px-4 flex-row gap-3 h-20 mt-4 max-w-max;
+    }
 
-      max-width: theme('width.64');
+    .select-container {
+      @apply w-full;
     }
 
     .select-field {
-      @apply mb-4;
+      @apply mb-2 w-full;
+
+      @screen md {
+        @apply mb-4;
+      }
 
       min-width: theme('width.64');
     }

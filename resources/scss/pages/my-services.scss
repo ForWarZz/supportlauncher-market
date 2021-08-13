@@ -3,10 +3,18 @@
 @import '../components/editor.scss';
 
 #my-services {
-  @apply flex flex-row h-full overflow-y-auto;
+  @apply flex flex-col h-full;
+
+  @screen md {
+    @apply flex-row overflow-y-auto;
+  }
 
   .side-menu {
-    @apply w-64 bg-gray-200 py-4 px-2;
+    @apply w-full bg-gray-200 p-4;
+
+    @screen md {
+      @apply w-64 px-2;
+    }
 
     .status-container {
       @apply mx-2 px-2 mb-2 rounded transition-colors;
@@ -82,14 +90,26 @@
   }
 
   .content {
-    @apply flex-1 p-8 overflow-y-auto;
+    @apply flex-1 flex flex-col;
+  }
+
+  .app-body {
+    @apply p-2 overflow-y-auto;
+
+    @screen md {
+      @apply p-8;
+    }
 
     .title {
       @apply text-gray-800 uppercase text-xl font-semibold px-2;
     }
 
     .card {
-      @apply bg-gradient-to-br from-purple-500 to-indigo-500 rounded-lg shadow p-4 text-white m-2 flex flex-row;
+      @apply bg-gradient-to-br from-purple-500 to-indigo-500 rounded-lg shadow p-4 text-white my-2 flex flex-row;
+
+      @screen md {
+        @apply mx-2;
+      }
 
       .icon {
         @apply inline mr-2 top-0 text-lg;

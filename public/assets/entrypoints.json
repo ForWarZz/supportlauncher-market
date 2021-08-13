@@ -3,6 +3,7 @@
     "base": {
       "js": [
         "http://localhost:8080/assets/vendors-node_modules_webpack-dev-server_client_index_js_protocol_ws_3A_hostname_0_0_0_0_port_-f18552.js",
+        "http://localhost:8080/assets/vendors-node_modules_symfony_webpack-encore_node_modules_mini-css-extract-plugin_dist_hmr_hot-d2ccd4.js",
         "http://localhost:8080/assets/base.js"
       ],
       "css": [

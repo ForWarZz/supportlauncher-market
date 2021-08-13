@@ -68,9 +68,11 @@
       </ul>
     </aside>
     <div class="content">
-      @!section('body')
+      <div class="app-body">
+        @!section('body')
+      </div>
+      @include('partials/footer')
     </div>
-    @include('partials/footer')
   </main>
 
 

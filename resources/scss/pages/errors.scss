@@ -3,9 +3,12 @@
 #errors {
   @apply flex h-full justify-center items-center bg-gradient-to-b from-blue-500 to-blue-400;
   .box {
-    @apply rounded bg-gray-100 px-8 py-6 shadow-md mx-2;
+    @apply rounded bg-gray-100 px-2 py-6 shadow-md mx-2 w-full;
 
-    width: 32rem;
+    @screen md {
+      @apply px-8;
+      width: 32rem;
+    }
 
     .title {
       @apply uppercase text-xl font-bold mb-6;

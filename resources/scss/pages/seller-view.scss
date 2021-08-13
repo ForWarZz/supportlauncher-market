@@ -4,7 +4,11 @@
 
 #seller-view {
   .container {
-    @apply p-8 mx-auto max-w-screen-2xl;
+    @apply p-2 py-4 mx-auto max-w-screen-2xl;
+
+    @screen md {
+      @apply p-8;
+    }
   }
 
   .title {
@@ -38,7 +42,11 @@
   }
 
   .status {
-    @apply p-4 italic flex items-center w-full;
+    @apply py-4 px-2 italic flex items-center w-full;
+
+    @screen md {
+      @apply px-4;
+    }
 
     @screen lg {
       @apply px-8;

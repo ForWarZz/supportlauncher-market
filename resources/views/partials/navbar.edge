@@ -7,7 +7,7 @@
       <span class="title-container">SL-Market</span>
     </a>
 
-    <span class="menubar">
+    <span class="menubar" x-data="{open: false}">
       <a href="{{ route('base.sellers') }}" class="{{ request.matchesRoute('base.sellers') ? 'active' : '' }}">Vendeurs</a>
       @loggedIn
         @if(!auth.user.banned)
@@ -17,7 +17,7 @@
             </a>
           @endcan
         @endif
-        <div class="navbar-dropdown">
+        <div class="navbar-dropdown" @click="open = !open" @click.outside="open=false" :class="{'active': open}">
           <span>
             <img src="{{ auth.user.avatar }}" alt="User's Avatar" class="avatar">
             {{ auth.user.username }}

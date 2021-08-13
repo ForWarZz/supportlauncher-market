@@ -3,10 +3,18 @@
 @import '../components/input.scss';
 
 #sellers {
-  @apply flex flex-row h-full overflow-y-auto;
+  @apply flex flex-col h-full;
+
+  @screen md {
+    @apply flex-row overflow-y-auto;
+  }
 
   .side-menu {
-    @apply w-64 bg-gray-200 py-4 px-2;
+    @apply w-full bg-gray-200 p-4;
+
+    @screen md {
+      @apply w-64 px-2;
+    }
 
     .title {
       @apply text-gray-700 uppercase font-semibold px-2 mb-6;
@@ -30,14 +38,26 @@
   }
 
   .app-body {
-    @apply p-8 overflow-y-auto;
+    @apply p-2 overflow-y-auto;
+
+    @screen md {
+      @apply p-8;
+    }
 
     .title {
       @apply text-gray-800 uppercase text-xl font-semibold px-2;
     }
 
     section {
-      @apply block p-4 grid grid-flow-row grid-cols-2 gap-10;
+      @apply block p-2 grid grid-flow-row grid-cols-1 gap-10;
+
+      @screen md {
+        @apply grid-cols-2 p-4;
+      }
+
+      @screen 2xl {
+        @apply grid-cols-3;
+      }
 
       @media screen and (max-width: calc( theme('screens.lg') - 1px)) {
         @apply grid-flow-row grid-cols-1;
@@ -47,7 +67,11 @@
         @apply block p-4 rounded-xl bg-white shadow-md flex flex-row mb-8;
 
         .avatar {
-          @apply mr-10 block;
+          @apply mr-4 block;
+
+          @screen md {
+            @apply mr-10;
+          }
 
           .avatar-container {
             img {

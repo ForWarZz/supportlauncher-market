@@ -3,7 +3,12 @@
 @import '../../components/input.scss';
 
 #profile {
-  @apply flex-1 p-8 overflow-y-auto;
+  @apply flex-1 py-8 px-2;
+
+  @screen md {
+    @apply px-8 overflow-y-auto;
+  }
+
   header {
     h2.title {
       @apply text-2xl mb-5 leading-tight;
@@ -11,7 +16,11 @@
   }
 
   section {
-    @apply mx-4 text-gray-800 mb-5;
+    @apply mx-2 text-gray-800 mb-10;
+
+    @screen md {
+      @apply mx-4 mb-5;
+    }
 
     .title {
       @apply text-blue-500 uppercase font-bold mb-2;
@@ -20,7 +29,11 @@
 
   .stripe-connect,
   .stripe-disconnect {
-    @apply w-auto mt-2 inline-block;
+    @apply w-auto mt-2 block;
+
+    @screen md {
+      @apply inline-block;
+    }
 
     background-color: #635bff;
 
@@ -30,7 +43,11 @@
   }
 
   #username-form {
-    @apply max-w-md mx-4 mt-2;
+    @apply max-w-md mt-2;
+
+    @screen md {
+      @apply mx-4;
+    }
 
     .label {
       @apply text-blue-500;
