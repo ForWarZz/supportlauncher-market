@@ -94,7 +94,7 @@
   }
 
   .app-body {
-    @apply p-2 overflow-y-auto;
+    @apply py-2 overflow-y-auto;
 
     @screen md {
       @apply p-8;

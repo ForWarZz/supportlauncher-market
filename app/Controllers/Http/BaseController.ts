@@ -39,7 +39,7 @@ export default class BasesController {
     })
   }
 
-  public async updateTheme({ request, auth, session, response, params }: HttpContextContract) {
+  public async updateTheme({ request, auth, session, response }: HttpContextContract) {
     const mode = request.input('mode')
 
     if (mode === 'dark' || mode === 'light') {
