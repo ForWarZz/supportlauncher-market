@@ -1,16 +1,27 @@
 @layout('layouts/my-services')
 
 @section('body')
-<div class="app-body">
+@set('darkMode', auth.isLoggedIn ? auth.user.darkMode : session.get('darkMode', false))
 
+<div class="app-body">
   <h1 class="title">Résumé de mon profil</h1>
   
   <section class="card">
     <div class="icon"><i class="fas fa-book"></i></div>
     <form class="seller-description" method="POST" action="{{ route('my-services.update-bio') }}">
       {{ csrfField() }}
+
+      @if (flashMessages.has('errors.content'))
+        @each(error in flashMessages.get('errors.content'))
+        <div class="error-box {{ darkMode ? 'dark' : ''}}" role="alert">
+          <strong class="error-type">Error !</strong>
+          <span class="error-message">{{ error }}</span>
+        </div>
+        @endeach
+      @endif
+
       <div class="editor-container">
-        <textarea name="content" id="editor">{{{ auth.user.sellerProfile.bio || '' }}}</textarea>
+        <textarea name="content" id="editor">{{{ request.input('content', auth.user.sellerProfile.bio || '') }}}</textarea>
       </div>
       <div class="actions">
         <button  class="button" type="submit">

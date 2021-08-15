@@ -14,7 +14,7 @@ export default class MyServicesController {
           {
             trim: true,
           },
-          [rules.maxLength(4000)]
+          [rules.maxLength(524000)]
         ),
       }),
     })
