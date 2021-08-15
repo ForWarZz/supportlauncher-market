@@ -27,6 +27,5 @@
   "assets/fonts/fa-solid-900.woff2": "http://localhost:8080/assets/fonts/fa-solid-900.1551f4f6.woff2",
   "assets/fonts/fa-brands-400.woff2": "http://localhost:8080/assets/fonts/fa-brands-400.d878b0a6.woff2",
   "assets/images/logo.svg": "http://localhost:8080/assets/images/logo.9ce7439e.svg",
-  "assets/images/stripe_logo.svg": "http://localhost:8080/assets/images/stripe_logo.b1a65489.svg",
-  "assets/vendors-node_modules_alpinejs_dist_module_esm_js.js": "http://localhost:8080/assets/vendors-node_modules_alpinejs_dist_module_esm_js.js"
+  "assets/images/stripe_logo.svg": "http://localhost:8080/assets/images/stripe_logo.b1a65489.svg"
 }

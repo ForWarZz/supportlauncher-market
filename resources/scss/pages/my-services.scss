@@ -118,10 +118,6 @@
       .seller-description {
         @apply flex w-full flex-col;
 
-        .error-box.dark {
-          @apply bg-gray-900
-        }
-
         .error-box {
           @apply bg-gray-100 text-red-700 px-4 py-3 rounded relative;
           margin-bottom: 1rem;
@@ -192,11 +188,17 @@
       @apply text-gray-200;
     }
 
-    .seller-description .actions .button {
-      @apply bg-gray-900;
+    .seller-description {
+      .error-box {
+        @apply bg-gray-900;
+      }
 
-      &:hover {
-        @apply bg-gray-800;
+      .actions .button {
+        @apply bg-gray-900;
+  
+        &:hover {
+          @apply bg-gray-800;
+        }
       }
     }
   }

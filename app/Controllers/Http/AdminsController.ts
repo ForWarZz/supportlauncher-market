@@ -2,7 +2,6 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Role from 'App/Models/Role'
 import User from 'App/Models/User'
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
-import SellerProfile from 'App/Models/SellerProfile'
 
 export default class AdminsController {
   public async home({ view }: HttpContextContract) {
@@ -232,9 +231,8 @@ export default class AdminsController {
 
 
     try {
-      await SellerProfile.query().where('userId', user.id).update({
-        certified: true,
-      })
+      user!.sellerProfile.certified = true
+      await user!.save()
     } catch (error) {
       logger.error(error)
     }
@@ -254,9 +252,8 @@ export default class AdminsController {
     }
 
     try {
-      await SellerProfile.query().where('userId', user.id).update({
-        certified: false,
-      })
+      user!.sellerProfile.certified = false
+      await user!.save()
     } catch (error) {
       logger.error(error)
     }

@@ -1,7 +1,6 @@
 @layout('layouts/my-services')
 
 @section('body')
-@set('darkMode', auth.isLoggedIn ? auth.user.darkMode : session.get('darkMode', false))
 
 <div class="app-body">
   <h1 class="title">Résumé de mon profil</h1>
@@ -13,7 +12,7 @@
 
       @if (flashMessages.has('errors.content'))
         @each(error in flashMessages.get('errors.content'))
-        <div class="error-box {{ darkMode ? 'dark' : ''}}" role="alert">
+        <div class="error-box" role="alert">
           <strong class="error-type">Error !</strong>
           <span class="error-message">{{ error }}</span>
         </div>
