@@ -53,6 +53,26 @@
                 </div>
               </td>
             </tr>
+            @if(user.sellerProfile)
+              <tr>
+                <th>Certifier l'utilisateur ?</th>
+                <td>
+                  <div class="checkbox-field">
+                    @if(!user.sellerProfile.certified)
+                      <a href="{{ route('admin.certifUser', { id: user.id }) }}" class="button certif_button">
+                        <i class="fas fa-check"></i>
+                        Oui
+                      </a>
+                    @else
+                      <a href="{{ route('admin.uncertifUser', { id: user.id }) }}" class="button certif_button">
+                        <i class="fas fa-times"></i>
+                        Non
+                      </a>
+                    @endif
+                  </div>
+                </td>
+              </tr>
+            @endif
           </tbody>
         </table>
       </div>

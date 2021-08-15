@@ -32,6 +32,14 @@ Route.group(() => {
   Route.get('/utilisateurs/:id/debannir', 'AdminsController.unbanUser')
     .as('unbanUser')
     .middleware('permission:admin_updateUser')
+
+  Route.get('/utilisateurs/:id/certifer', 'AdminsController.certifUser')
+  .as('certifUser')
+  .middleware('permission:admin_updateUser')
+
+  Route.get('/utilisateurs/:id/decertifier', 'AdminsController.uncertifUser')
+  .as('uncertifUser')
+  .middleware('permission:admin_updateUser')
 })
   .as('admin')
   .prefix('admin')

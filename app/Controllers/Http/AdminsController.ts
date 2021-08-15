@@ -2,6 +2,7 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Role from 'App/Models/Role'
 import User from 'App/Models/User'
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
+import SellerProfile from 'App/Models/SellerProfile'
 
 export default class AdminsController {
   public async home({ view }: HttpContextContract) {
@@ -210,6 +211,51 @@ export default class AdminsController {
     try {
       await User.query().where('id', user.id).update({
         banned: false,
+      })
+    } catch (error) {
+      logger.error(error)
+    }
+
+    return response.redirect().toRoute('admin.userInfo', {
+      id: params.id,
+    })
+  }
+
+  public async certifUser({ params, logger, response }: HttpContextContract) {
+    const user = await User.find(params.id);
+
+    if (!user || !user.sellerProfile?.isStripeLinked) {
+      return response.redirect().toRoute('admin.userInfo', {
+        id: params.id,
+      })
+    }
+
+
+    try {
+      await SellerProfile.query().where('userId', user.id).update({
+        certified: true,
+      })
+    } catch (error) {
+      logger.error(error)
+    }
+
+    return response.redirect().toRoute('admin.userInfo', {
+      id: user.id,
+    })
+  }
+
+  public async uncertifUser({ params, logger, response }: HttpContextContract) {
+    const user = await User.find(params.id);
+
+    if (!user || !user.sellerProfile?.isStripeLinked) {
+      return response.redirect().toRoute('admin.userInfo', {
+        id: params.id,
+      })
+    }
+
+    try {
+      await SellerProfile.query().where('userId', user.id).update({
+        certified: false,
       })
     } catch (error) {
       logger.error(error)
